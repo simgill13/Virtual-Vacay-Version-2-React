@@ -19,7 +19,7 @@ export const fetchHousesSuccess = (title, url, location, price, description, acc
 export const fetchHouses = () => dispatch => {
     dispatch(fetchHousesRequest());
     console.log("hi");
-    fetch('http://localhost:8080/houses')
+    fetch('http://localhost:8080/api/houses')
     .then(response => response.json())
     .then(json => {
       console.log(json[0])

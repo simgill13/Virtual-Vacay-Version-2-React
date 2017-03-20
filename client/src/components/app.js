@@ -2,6 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchHouses} from '../actions/action'
+import Home from '../components/home';
 
 class App extends React.Component {
    
@@ -11,12 +12,13 @@ class App extends React.Component {
    }
 
     render() {
-         console.log(this.props.title)
+       
         return (
 
             <div className="app">
-               <h1> TEST </h1>
-               <h2>{this.props.title}</h2>
+              
+               <h2> Connection to Mongo - {this.props.title}</h2>
+               <Home />
             </div>
         );
     }
