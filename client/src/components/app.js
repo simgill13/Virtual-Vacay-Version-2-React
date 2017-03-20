@@ -16,8 +16,6 @@ class App extends React.Component {
         return (
 
             <div className="app">
-              
-               <h2> Connection to Mongo - {this.props.title}</h2>
                <Home />
             </div>
         );

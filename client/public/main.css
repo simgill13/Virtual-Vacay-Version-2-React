@@ -28,3 +28,41 @@
 .motto {
   color: white;
 }
+
+
+.home{
+  text-align: center;
+   margin-top:  250px;
+
+}
+
+.title, .motto {
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+
+.main-input{
+  margin-top: 50px;
+}
+
+.loginDiv{
+  height: 20em;
+  width: 25em;
+  background-color: black;
+  opacity: .6;
+  border-radius: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.username,.password {
+
+  margin-top: 10%;
+  font-size: 30px;
+  background-color: white;
+  border: none;
+  opacity: .6;
+  border-radius: 20px;
+}
