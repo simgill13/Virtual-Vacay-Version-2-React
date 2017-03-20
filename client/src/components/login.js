@@ -1,25 +1,38 @@
 import React from 'react';
 
-
+import SocialLogin from 'react-social-login';
 
 
 
 export default class Login extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+
+        this.handleSocialLogin=this.handleSocialLogin.bind(this);
+    }
 
 
-
+ handleSocialLogin (user,err)  {
+   console.log(user); //either you will get a user
+   console.log(err); //or an error
+ }
 
     render() {
              return (
                 <div className="loginDiv" >
+
+                 <SocialLogin 
+                     provider="google" 
+                      appId="1085669919173-lslfngv7lb6j9sr7eostmtk54mrdmhc5.apps.googleusercontent.com" 
+                     callback={this.handleSocialLogin} >
+                     <button > signup using google </button>
+                    
+                  </SocialLogin>
                   <form className="main-input" >
-                    <input type="text" placeholder="username" className="username" ></input>
+                    <input type="text" placeholder="username" className="   username" ></input>
 
                     <br/>
-                    <input type="text" placeholder="password" className="password" ></input>
+                    <input type="text" placeholder="password" className="   password" ></input>
                     <br/>
                     <button type="submit">Login </button>
                   </form>
@@ -28,3 +41,9 @@ export default class Login extends React.Component {
         );
     }
 }
+
+
+
+
+
+// passport google??
