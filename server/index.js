@@ -1,9 +1,49 @@
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
+const DATABASE_URL = process.env.DATABASE_URL ||
+                       global.DATABASE_URL || 'mongodb://userhouse:data@ds137090.mlab.com:37090/housingdata';
 
+const router = express.Router();
+const jsonParser = bodyParser.json();
+const mongoose = require('mongoose');
+const {Houses} = require('./models');
 const app = express();
-
 // API endpoints go here!
+
+
+
+app.get('/api/houses', (req, res) => {
+  Houses
+  .find()
+  .exec()
+  .then(data => res.json(data)
+  .catch(console.error)
+)}
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Serve the built client
@@ -19,9 +59,15 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 let server;
 function runServer(port=3001) {
     return new Promise((resolve, reject) => {
-        server = app.listen(port, () => {
-            resolve();
-        }).on('error', reject);
+         mongoose.connect(DATABASE_URL, err => {
+            if(err) {
+              return reject(err);
+        }
+            console.log('Db connected');
+            server = app.listen(port, () => {
+                resolve();
+            }).on('error', reject);
+        });
     });
 }
 
