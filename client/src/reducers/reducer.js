@@ -6,12 +6,8 @@ import {
 
 const initialState = {
   title: "df",
-  url: "",
-  location: "",
-  price: "",
-  description: "",
-  accomodates: 0,
-  loading: false
+  loading: false,
+  loggedIn:true
 };
 
 export default (state = initialState, action) => {
