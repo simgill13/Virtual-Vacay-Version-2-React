@@ -19,6 +19,7 @@ import {connect} from 'react-redux';
           return (
           <div className="home">
             <div className="main-headings">
+             <h1 className='title'>{this.props.name}</h1>
               <h1 className='title'>Virtual Vacay</h1>
               <h4 className='motto'> For when you need a virtual vacation</h4>
             </div>
@@ -54,7 +55,8 @@ import {connect} from 'react-redux';
 
 
 const mapStateToProps = (state) => ({
- loggedIn: state.loggedIn
+ loggedIn: state.loggedIn,
+ name: state.name
 });
 
 

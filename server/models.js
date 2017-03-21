@@ -13,10 +13,21 @@ const housingSchema = mongoose.Schema({
 
 })
 
+//ADDED THE USER SCHEMA
+const userSchema = mongoose.Schema({
+
+  name: {type: String, required: true},
+  id: {type: String, required: true},
+  profilePicURL: String,
+  accessToken: String,
+  expiresAt: Number
+})
+
 // virtuals
 // api reps
 
 
 const Houses = mongoose.model('Houses', housingSchema);
+const User = mongoose.model('User',userSchema);
 
-module.exports = {Houses};
+module.exports = {Houses, User};

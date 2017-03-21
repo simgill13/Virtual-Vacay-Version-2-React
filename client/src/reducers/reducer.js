@@ -1,13 +1,20 @@
 import {
   FETCH_HOUSES_REQUEST,
   FETCH_HOUSES_SUCCESS,
+  POST_LOGIN_DATA
 
 } from '../actions/action';
 
 const initialState = {
   title: "df",
   loading: false,
-  loggedIn: false
+  loggedIn: false,
+  name:"",
+  id:"",
+  profilePicURL:"",
+  accessToken:"",
+  expiresAt:1490074439647,
+  email:""
 
 };
 
@@ -25,6 +32,15 @@ export default (state = initialState, action) => {
           description: action.description,
           accomodates: action.accomodates,
           loading: false
+        })
+        case POST_LOGIN_DATA:
+        return Object.assign({},state,{
+          name:action.name,
+          id:action.id,
+          profilePicURL:action.profilePicURL,
+          accessToken:action.accessToken,
+          expiresAt:action.expiresAt,
+          email:action.email
         })
       default:
       return state;

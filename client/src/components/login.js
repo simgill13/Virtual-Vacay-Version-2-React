@@ -1,10 +1,11 @@
 import React from 'react';
-
 import SocialLogin from 'react-social-login';
+import {connect} from 'react-redux';
+import {postUserData,fetchHouses} from '../actions/action';
 
 
 
-export default class Login extends React.Component {
+ class Login extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,6 +16,15 @@ export default class Login extends React.Component {
  handleSocialLogin (user,err)  {
    console.log(user); //either you will get a user
    console.log(err); //or an error
+   const id = user._profile.id;
+   const name= user._profile.name;
+   const email= user._profile.email;
+   const profilePicURL= user._profile.profilePicURL;
+   const accessToken= user._token.accessToken;
+   const expiresAt= user._token.expiresAt;
+
+   this.props.dispatch(postUserData(name,id,profilePicURL,accessToken,expiresAt,email))
+
  }
 
     render() {
@@ -39,7 +49,7 @@ export default class Login extends React.Component {
         );
     }
 }
-
+export default connect()(Login)
 
 
 

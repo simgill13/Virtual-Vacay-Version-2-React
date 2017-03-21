@@ -26,3 +26,39 @@ export const fetchHouses = () => dispatch => {
       dispatch(fetchHousesSuccess(json[0].title,json[0].url,json[0].location,json[0].price,json[0].description,json[0].accomodates));
     })
 }
+//NEW ADD BY SIM
+// WORKING ON ADDING USER TO A COLLECTION
+//CREATING AN ACTION FOR POSTING DATA
+//this action will take the data i get back from google signup and update my innital state
+
+export const POST_LOGIN_DATA = 'POST_LOGIN_DATA';
+export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => ({
+  type: POST_LOGIN_DATA,
+  name,
+  id,
+  profilePicURL,
+  accessToken,
+  expiresAt,
+  email
+})
+
+
+
+//NEW ADD BY SIM
+export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) => {
+
+  return (dispatch) => {
+    fetch('http://localhost:8080/api/user', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({name,id,profilePicURL,accessToken,expiresAt,email})
+    })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      // console.log(json);
+      dispatch(postData(json.name,json.id,json.profilePicURL,json.accessToken,json.expiresAt,json.email))})
+  }
+}

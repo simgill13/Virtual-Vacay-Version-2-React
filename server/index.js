@@ -7,7 +7,7 @@ const DATABASE_URL = process.env.DATABASE_URL ||
 const router = express.Router();
 const jsonParser = bodyParser.json();
 const mongoose = require('mongoose');
-const {Houses} = require('./models');
+const {Houses, User} = require('./models');
 const app = express();
 // API endpoints go here!
 
@@ -21,6 +21,50 @@ app.get('/api/houses', (req, res) => {
   .catch(console.error)
 )}
 );
+
+
+app.get('/api/user', (req, res) => {
+  User
+  .find()
+  .exec()
+  .then(data => res.json(data)
+  .catch(console.error)
+)}
+);
+
+//creates a new user in the user collection
+
+app.post('/api/user', jsonParser, (req, res) => {
+  console.log(req.body);
+  User
+  .create({
+    name: req.body.name,
+    id: req.body.id,
+    profilePicURL: req.body.profilePicURL,
+    accessToken: req.body.accessToken,
+    expiresAt:req.body.expiresAt,
+    email:req.body.email
+  })
+  .then(newPost =>{
+    res.status(201).json(newPost)
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({message:'internal server error'});
+  })
+
+});
+
+
+// ONLY ADDING THIS SO WE TEST ADDING AND REMOVING USERS
+app.delete('/api/user/:id', (req , res) =>{
+  User
+  .findByIdAndRemove(req.params.id)
+  .exec()
+  .then(post => res.status(204).end())
+  .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
 
 
 // Serve the built client
