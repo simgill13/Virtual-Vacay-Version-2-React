@@ -16,9 +16,6 @@ import {
     //     super(props);
 
 
-   componentDidMount() {
-      this.props.dispatch(fetchvacations());
-    }
 
 
     render() {
@@ -44,7 +41,7 @@ import {
          {headings}
           <div className="video-background">
             <div className="video-foreground">
-              <ReactPlayer url='https://www.youtube.com/embed/jEnd8JIMii4?start=16m12s' volume={0}
+              <ReactPlayer url={this.props.videoUrl} volume={0}
                playing loop={true} />
             </div>
           </div>
@@ -59,7 +56,8 @@ import {
 
 const mapStateToProps = (state) => ({
  loggedIn: state.loggedIn,
- name: state.name
+ name: state.name,
+ videoUrl: state.videoUrl
 });
 
 

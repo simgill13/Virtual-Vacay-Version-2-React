@@ -19,7 +19,7 @@ const initialState = {
   email:"",
   country:"",
   description:"",
-  videoUrl: "",
+  videoUrl: "https://www.youtube.com/embed/jEnd8JIMii4?start=16m12s",
   soundUrl:""
 };
 
