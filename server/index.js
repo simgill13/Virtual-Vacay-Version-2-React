@@ -7,7 +7,7 @@ const DATABASE_URL = process.env.DATABASE_URL ||
 const router = express.Router();
 const jsonParser = bodyParser.json();
 const mongoose = require('mongoose');
-const {Houses, User} = require('./models');
+const {Houses, User, Vacation} = require('./models');
 const app = express();
 // API endpoints go here!
 
@@ -64,6 +64,54 @@ app.delete('/api/user/:id', (req , res) =>{
   .then(post => res.status(204).end())
   .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
+
+
+
+
+
+//==============Vacation endpoints==============================
+
+app.get('/api/vacation', (req, res) => {
+  Vacation
+  .find()
+  .exec()
+  .then(data => res.json(data)
+  .catch(console.error)
+)}
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

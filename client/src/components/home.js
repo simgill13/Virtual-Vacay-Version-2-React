@@ -5,6 +5,9 @@ import Nav from './nav';
 import Search from './search';
 import Headings from './headings';
 import {connect} from 'react-redux';
+import {
+    fetchvacations
+} from '../actions/action';
 
 
 
@@ -13,7 +16,9 @@ import {connect} from 'react-redux';
     //     super(props);
 
 
-
+   componentDidMount() {
+      this.props.dispatch(fetchvacations());
+    }
 
 
     render() {

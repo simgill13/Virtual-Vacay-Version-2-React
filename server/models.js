@@ -27,7 +27,21 @@ const userSchema = mongoose.Schema({
 // api reps
 
 
+
+const vacationSchema = mongoose.Schema({
+  country: {type: String, required: true}, 
+  description: {type: String, required: true},
+  videoUrl: {type: String, required: true},
+  soundUrl: String
+})
+
+
+
+
+
 const Houses = mongoose.model('Houses', housingSchema);
 const User = mongoose.model('User',userSchema);
+const Vacation = mongoose.model('Vacation',vacationSchema);
 
-module.exports = {Houses, User};
+
+module.exports = {Houses, User,Vacation};

@@ -2,7 +2,8 @@ import {
   FETCH_HOUSES_REQUEST,
   FETCH_HOUSES_SUCCESS,
   POST_LOGIN_DATA,
-  LOGIN_USER_PAGE
+  LOGIN_USER_PAGE,
+  FETCH_VACATION_DATA
 
 } from '../actions/action';
 
@@ -15,8 +16,11 @@ const initialState = {
   profilePicURL:"",
   accessToken:"",
   expiresAt:1490074439647,
-  email:""
-
+  email:"",
+  country:"",
+  description:"",
+  videoUrl: "",
+  soundUrl:""
 };
 
 export default (state = initialState, action) => {
@@ -47,6 +51,13 @@ export default (state = initialState, action) => {
          return Object.assign({}, state, {
            loggedIn: true
          })
+         case FETCH_VACATION_DATA:
+         return Object.assign({},state,{
+          country: action.country,
+          description: action.description,
+          videoUrl: action.videoUrl,
+          soundUrl: action.soundUrl
+        })
 
 
       default:

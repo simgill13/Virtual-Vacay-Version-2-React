@@ -16,21 +16,6 @@ export const fetchHousesSuccess = (title, url, location, price, description, acc
 })
 
 
-export const fetchHouses = () => dispatch => {
-    dispatch(fetchHousesRequest());
-    console.log("hi");
-    fetch('http://localhost:8080/api/houses')
-    .then(response => response.json())
-    .then(json => {
-      console.log(json[0])
-      dispatch(fetchHousesSuccess(json[0].title,json[0].url,json[0].location,json[0].price,json[0].description,json[0].accomodates));
-    })
-}
-//NEW ADD BY SIM
-// WORKING ON ADDING USER TO A COLLECTION
-//CREATING AN ACTION FOR POSTING DATA
-//this action will take the data i get back from google signup and update my innital state
-
 export const POST_LOGIN_DATA = 'POST_LOGIN_DATA';
 export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => ({
   type: POST_LOGIN_DATA,
@@ -42,8 +27,22 @@ export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => (
   email
 })
 
+export const LOGIN_USER_PAGE = 'LOGIN_USER_PAGE';
+export const loginUserPage = () => ({
+  type: LOGIN_USER_PAGE
+})
 
-//NEW ADD BY SIM
+export const FETCH_VACATION_DATA = 'FETCH_VACATION_DATA';
+export const fetchvacationdata = (country, description, videoUrl, soundUrl) => ({
+  type: FETCH_VACATION_DATA,
+  country,
+  description,
+  videoUrl,
+  soundUrl
+})
+
+// Async ACTIONS
+
 export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) => {
 
   return (dispatch) => {
@@ -61,8 +60,50 @@ export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) 
       dispatch(postData(json.name,json.id,json.profilePicURL,json.accessToken,json.expiresAt,json.email))})
   }
 }
-//this action will changed loggedIn from false to true to display the search component
-export const LOGIN_USER_PAGE = 'LOGIN_USER_PAGE';
-export const loginUserPage = () => ({
-  type: LOGIN_USER_PAGE
-})
+
+
+export const fetchHouses = () => dispatch => {
+    dispatch(fetchHousesRequest());
+    console.log("hi");
+    fetch('http://localhost:8080/api/houses')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json[0])
+      dispatch(fetchHousesSuccess(json[0].title,json[0].url,json[0].location,json[0].price,json[0].description,json[0].accomodates));
+    })
+}
+
+
+
+export const fetchvacations = () => dispatch => {
+    dispatch(fetchHousesRequest());
+    console.log("fetching vacation data...");
+    fetch('http://localhost:8080/api/vacation')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json[0].country)//look at the console before dispatching the action.
+
+      dispatch(fetchvacationdata(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl));
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

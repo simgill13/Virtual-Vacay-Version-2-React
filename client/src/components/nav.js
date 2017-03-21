@@ -15,10 +15,15 @@ import {loginUserPage} from '../actions/action';
     render() {
              return (
                 <div className="nav-bar" >
+                    <div>
+                        <img className="profile-pic" src={this.props.profilePicURL}/>
+                    </div>
                     <button type="submit" className="vacations-button">Vacations</button>
                     <button type="submit" className="logout-button">Logout</button>
-                    <h3>Logged in as{this.props.name}</h3>
-                    <img className="profile-pic" src={this.props.profilePicURL}/>
+                    <div>
+                        <h3>Logged in as {this.props.name}</h3>
+                    </div>
+
                </div>
         );
     }
