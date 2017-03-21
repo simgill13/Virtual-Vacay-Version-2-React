@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {loginUserPage} from '../actions/action';
 import {
-    updateSearchField
+    updateSearchField,
+    searchRequest
 } from '../actions/action';
 
 
@@ -18,8 +19,13 @@ import {
              return (
                 <div className="search-box" >
                   <h2>Hi {this.props.name}, where would you like to go today?</h2>
-                  <form className="search-input" >
-                    <input type="text" placeholder="Enter Country Here" onChange={this.grabVal} className="search-bar"></input>
+                  <form onSubmit={(event) => {
+                      event.preventDefault();
+                      const userInput = event.target.searchfield.value;
+                      console.log(userInput);
+                       this.props.dispatch(searchRequest(userInput));
+                  }} className="search-input" >
+                    <input name="searchfield" type="text" placeholder="Enter Country Here" onChange={this.grabVal} className="search-bar"></input>
                     <button type="submit" className="search-button">Search</button>
                   </form>
                 </div>

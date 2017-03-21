@@ -76,13 +76,14 @@ app.get('/api/vacation', (req, res) => {
   .find()
   .exec()
   .then(data => res.json(data))
-  .catch(console.error)
+  .npmcatch(console.error)
 });
 
 
 app.get('/api/vacation/:country', (req, res) => {
+  var re = new RegExp(req.params.country, "i");
   Vacation
-  .find({country:req.params.country})
+  .find({country:re})
   .exec()
   .then(data => res.json(data))
   .catch(console.error)

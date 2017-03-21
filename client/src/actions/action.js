@@ -48,7 +48,6 @@ export const searchData = (country, description, videoUrl, soundUrl) => ({
   description,
   videoUrl,
   soundUrl
-
 })
 
 // Async ACTIONS
@@ -97,13 +96,17 @@ export const fetchvacations = () => dispatch => {
     })
 }
 
-export const searchRequest = (searchData) => dispatch => {
+export const searchRequest = (data) => dispatch => {
     dispatch(fetchHousesRequest());
     console.log("fetching search data...");
-    fetch(`{http://localhost:8080/api/vacation/${searchData}`)
+    fetch(`http://localhost:8080/api/vacation/${data}`)
     .then(response => response.json())
-    .then(json => {
-      console.log(json)
-      // dispatch(fetchHousesSuccess(json[0].title,json[0].url,json[0].location,json[0].price,json[0].description,json[0].accomodates));
-    })
+    .then(json => dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl)))
 }
+
+
+
+
+
+
+
