@@ -43,7 +43,6 @@ export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => (
 })
 
 
-
 //NEW ADD BY SIM
 export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) => {
 
@@ -62,3 +61,8 @@ export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) 
       dispatch(postData(json.name,json.id,json.profilePicURL,json.accessToken,json.expiresAt,json.email))})
   }
 }
+//this action will changed loggedIn from false to true to display the search component
+export const LOGIN_USER_PAGE = 'LOGIN_USER_PAGE';
+export const loginUserPage = () => ({
+  type: LOGIN_USER_PAGE
+})

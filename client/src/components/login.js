@@ -1,7 +1,7 @@
 import React from 'react';
 import SocialLogin from 'react-social-login';
 import {connect} from 'react-redux';
-import {postUserData,fetchHouses} from '../actions/action';
+import {postUserData,fetchHouses,loginUserPage} from '../actions/action';
 
 
 
@@ -11,7 +11,6 @@ import {postUserData,fetchHouses} from '../actions/action';
 
         this.handleSocialLogin=this.handleSocialLogin.bind(this);
     }
-
 
  handleSocialLogin (user,err)  {
    console.log(user); //either you will get a user
@@ -24,6 +23,7 @@ import {postUserData,fetchHouses} from '../actions/action';
    const expiresAt= user._token.expiresAt;
 
    this.props.dispatch(postUserData(name,id,profilePicURL,accessToken,expiresAt,email))
+   this.props.dispatch(loginUserPage())
 
  }
 

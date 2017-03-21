@@ -1,7 +1,8 @@
 import {
   FETCH_HOUSES_REQUEST,
   FETCH_HOUSES_SUCCESS,
-  POST_LOGIN_DATA
+  POST_LOGIN_DATA,
+  LOGIN_USER_PAGE
 
 } from '../actions/action';
 
@@ -34,7 +35,7 @@ export default (state = initialState, action) => {
           loading: false
         })
         case POST_LOGIN_DATA:
-        return Object.assign({},state,{
+         return Object.assign({},state,{
           name:action.name,
           id:action.id,
           profilePicURL:action.profilePicURL,
@@ -42,6 +43,12 @@ export default (state = initialState, action) => {
           expiresAt:action.expiresAt,
           email:action.email
         })
+        case LOGIN_USER_PAGE:
+         return Object.assign({}, state, {
+           loggedIn: true
+         })
+
+
       default:
       return state;
     }
