@@ -23,7 +23,7 @@ import {connect} from 'react-redux';
               <h4 className='motto'> For when you need a virtual vacation</h4>
               <div className="video-background">
                 <div className="video-foreground">
-                  <ReactPlayer url='https://www.youtube.com/embed/jEnd8JIMii4?start=6m12s' volume={0}
+                  <ReactPlayer url='https://www.youtube.com/embed/jEnd8JIMii4?start=13m12s' volume={0}
                                playing loop={true} />
                 </div>
               </div>
