@@ -41,6 +41,16 @@ export const fetchvacationdata = (country, description, videoUrl, soundUrl) => (
   soundUrl
 })
 
+export const SEARCH_DATA = 'SEARCH_DATA';
+export const searchData = (country, description, videoUrl, soundUrl) => ({
+  type: SEARCH_DATA,
+  country,
+  description,
+  videoUrl,
+  soundUrl
+
+})
+
 // Async ACTIONS
 
 export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) => {
@@ -87,23 +97,13 @@ export const fetchvacations = () => dispatch => {
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export const searchRequest = (searchData) => dispatch => {
+    dispatch(fetchHousesRequest());
+    console.log("fetching search data...");
+    fetch(`{http://localhost:8080/api/vacation/${searchData}`)
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      // dispatch(fetchHousesSuccess(json[0].title,json[0].url,json[0].location,json[0].price,json[0].description,json[0].accomodates));
+    })
+}

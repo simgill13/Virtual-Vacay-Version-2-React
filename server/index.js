@@ -62,7 +62,7 @@ app.delete('/api/user/:id', (req , res) =>{
   .findByIdAndRemove(req.params.id)
   .exec()
   .then(post => res.status(204).end())
-  .catch(err => res.status(500).json({message: 'Internal server error'}));
+  .catch(err => {console.error(err); res.status(500).json({message: 'Internal server error'})});
 });
 
 
@@ -75,10 +75,20 @@ app.get('/api/vacation', (req, res) => {
   Vacation
   .find()
   .exec()
-  .then(data => res.json(data)
+  .then(data => res.json(data))
   .catch(console.error)
-)}
-);
+});
+
+
+app.get('/api/vacation/:country', (req, res) => {
+  Vacation
+  .find({country:req.params.country})
+  .exec()
+  .then(data => res.json(data))
+  .catch(console.error)
+});
+
+//
 
 
 

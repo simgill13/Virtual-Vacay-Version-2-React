@@ -3,7 +3,8 @@ import {
   FETCH_HOUSES_SUCCESS,
   POST_LOGIN_DATA,
   LOGIN_USER_PAGE,
-  FETCH_VACATION_DATA
+  FETCH_VACATION_DATA,
+  SEARCH_DATA
 
 } from '../actions/action';
 
@@ -58,7 +59,13 @@ export default (state = initialState, action) => {
           videoUrl: action.videoUrl,
           soundUrl: action.soundUrl
         })
-
+        case SEARCH_DATA:
+         return Object.assign({},state,{
+           country: action.country,
+           description: action.description,
+           videoUrl: action.videoUrl,
+           soundUrl: action.soundUrl
+         })
 
       default:
       return state;
