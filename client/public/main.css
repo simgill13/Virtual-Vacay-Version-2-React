@@ -49,15 +49,13 @@
 }
 
 
-.main-input{
-  margin-top: 50px;
-}
+
 
 .loginDiv{
   height: 20em;
   width: 25em;
   background-color: black;
-  opacity: 0.8;
+  background: rgba(0,0,0,0.8);
   border-radius: 20px;
   text-align: center;
   margin: auto;
@@ -65,12 +63,28 @@
 
 .username,.password {
 
-  margin-top: 10%;
-  font-size: 30px;
-  background-color: white;
-  border: none;
+  margin-top: 20%;
   opacity: 1;
-  border-radius: 20px;
+  display: flex;
+  max-width: 250px;
+  margin: auto;
+  border: 0;
+  border: 0.1px solid white;
+  font-family: 'Raleway', sans-serif  ;
+  font-weight:100;
+  background-color: transparent;
+  max-height: 60px;
+  font-size: 1.5em;
+  text-align: center;
+  font-color: white;
+
+}
+textarea:focus, .username:focus, .password:focus {
+    color: white ;
+}
+
+input, select, textarea{
+    color:white;
 }
 .loginBtn {
   box-sizing: border-box;
@@ -116,4 +130,25 @@
 }
 .loginBtn.loginBtn--google {
   margin-top: 40px;
+  opacity: 1;
+}
+.main-headings{
+  margin-bottom: 15px;
+}
+.main-input {
+  margin-top: 30px;
+}
+.main-login {
+  display: flex;
+  height: 40px;
+  width: 90px;
+  margin: auto;
+  margin-top: 30px;
+  border-color: 2px solid #d4fd02;
+  color: white;
+  font-size: 1.25em;
+  font-family: 'Raleway', sans-serif;
+  background-color: transparent;
+  text-align: center;
+  padding-left: 15px;
 }

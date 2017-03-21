@@ -20,21 +20,19 @@ export default class Login extends React.Component {
     render() {
              return (
                 <div className="loginDiv" >
-
                  <SocialLogin
                      provider="google"
                       appId="1085669919173-lslfngv7lb6j9sr7eostmtk54mrdmhc5.apps.googleusercontent.com"
                      callback={this.handleSocialLogin} >
                      <button className="loginBtn loginBtn--google">Signup Using Google</button>
-
                   </SocialLogin>
                   <form className="main-input" >
-                    <input type="text" placeholder="username" className="   username" ></input>
+                    <input type="text" placeholder="Username" className="   username" ></input>
 
                     <br/>
-                    <input type="text" placeholder="password" className="   password" ></input>
+                    <input type="text" placeholder="Password" className="   password" ></input>
                     <br/>
-                    <button type="submit">Login </button>
+                    <button type="submit" className="main-login">Login </button>
                   </form>
                 </div>
 

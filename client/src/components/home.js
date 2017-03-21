@@ -18,12 +18,13 @@ import {connect} from 'react-redux';
         if(this.props.loggedIn ===false){
           return (
           <div className="home">
+            <div className="main-headings">
               <h1 className='title'>Virtual Vacay</h1>
-
               <h4 className='motto'> For when you need a virtual vacation</h4>
+            </div>
               <div className="video-background">
                 <div className="video-foreground">
-                  <ReactPlayer url='https://www.youtube.com/embed/jEnd8JIMii4?start=13m12s' volume={0}
+                  <ReactPlayer url='https://www.youtube.com/embed/jEnd8JIMii4?start=16m12s' volume={0}
                                playing loop={true} />
                 </div>
               </div>
