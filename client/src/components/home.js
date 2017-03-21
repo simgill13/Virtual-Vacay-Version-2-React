@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
 import Login from './login';
+import Nav from './nav';
+import Search from './search';
+import Headings from './headings';
 import {connect} from 'react-redux';
 
 
@@ -18,13 +21,22 @@ import {connect} from 'react-redux';
       if (this.props.loggedIn === false) {
         loginPage=<Login/>;
       }
+      let searchPage;
+      if (this.props.loggedIn === true) {
+        searchPage=<Search/>;
+      }
+      let navPage;
+      if (this.props.loggedIn === true) {
+        navPage=<Nav/>
+      }
+      let headings;
+      if (this.props.loggedIn === false) {
+        headings=<Headings/>
+      }
       return (
         <div className="home">
-          <div className="main-headings">
-            <h1 className='title'>Virtual Vacay</h1>
-            <h1 className='title'>{this.props.name}</h1>
-            <h4 className='motto'> For when you need a virtual vacation</h4>
-          </div>
+         {navPage}
+         {headings}
           <div className="video-background">
             <div className="video-foreground">
               <ReactPlayer url='https://www.youtube.com/embed/jEnd8JIMii4?start=16m12s' volume={0}
@@ -32,6 +44,7 @@ import {connect} from 'react-redux';
             </div>
           </div>
           {loginPage}
+          {searchPage}
         </div>
       )
     }
