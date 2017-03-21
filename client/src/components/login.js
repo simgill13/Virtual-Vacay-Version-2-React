@@ -21,12 +21,12 @@ export default class Login extends React.Component {
              return (
                 <div className="loginDiv" >
 
-                 <SocialLogin 
-                     provider="google" 
-                      appId="1085669919173-lslfngv7lb6j9sr7eostmtk54mrdmhc5.apps.googleusercontent.com" 
+                 <SocialLogin
+                     provider="google"
+                      appId="1085669919173-lslfngv7lb6j9sr7eostmtk54mrdmhc5.apps.googleusercontent.com"
                      callback={this.handleSocialLogin} >
-                     <button > signup using google </button>
-                    
+                     <button className="loginBtn loginBtn--google">Signup Using Google</button>
+
                   </SocialLogin>
                   <form className="main-input" >
                     <input type="text" placeholder="username" className="   username" ></input>
@@ -37,7 +37,7 @@ export default class Login extends React.Component {
                     <button type="submit">Login </button>
                   </form>
                 </div>
-            
+
         );
     }
 }

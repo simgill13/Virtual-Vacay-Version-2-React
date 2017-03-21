@@ -7,7 +7,8 @@ import {
 const initialState = {
   title: "df",
   loading: false,
-  loggedIn:true
+  loggedIn: false
+
 };
 
 export default (state = initialState, action) => {

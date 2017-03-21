@@ -23,29 +23,6 @@ app.get('/api/houses', (req, res) => {
 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Serve the built client
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
