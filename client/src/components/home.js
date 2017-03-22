@@ -42,20 +42,16 @@ import {
           <div className="video-background">
             <div className="video-foreground">
               <ReactPlayer url={this.props.videoUrl} volume={0}
-               playing loop={true} />
+               playing loop={true}/>
             </div>
           </div>
-          <div>
-          <ReactPlayer url='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/274412611' volume={3}
-           playing loop={true} />
-          </div>
+<iframe className= "player" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/274412611"></iframe>
           {loginPage}
           {searchPage}
         </div>
       )
     }
  }
-
 
 
 const mapStateToProps = (state) => ({
