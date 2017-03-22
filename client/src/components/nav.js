@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {loginUserPage} from '../actions/action';
-
+import {Link} from 'react-router';
 
 
  class Nav extends React.Component {
@@ -18,7 +18,7 @@ import {loginUserPage} from '../actions/action';
                       <h3 className='logged-in-as'>Logged in as</h3>
                       <h3 className='logged-in-name'>{this.props.name}</h3>      
                     <div className='inline1'>
-                    <button type="submit" className="vacations-button">Vacations</button>
+                     <Link to={'/history'}> Vacations </Link>
                     </div>
                     <div className='inline1'>
                     <button type="submit" className="logout-button">Logout</button>
