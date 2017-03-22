@@ -45,6 +45,10 @@ import {
                playing loop={true} />
             </div>
           </div>
+          <div>
+          <ReactPlayer url='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/274412611' volume={3}
+           playing loop={true} />
+          </div>
           {loginPage}
           {searchPage}
         </div>
