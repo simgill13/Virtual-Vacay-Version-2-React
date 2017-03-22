@@ -16,11 +16,11 @@ const initialState = {
   id:"",
   profilePicURL:"",
   accessToken:"",
-  expiresAt:1490074439647,
+  expiresAt:1490074439647, //from google auth 
   email:"",
   country:"",
   description:"",
-  videoUrl: "https://www.youtube.com/embed/jEnd8JIMii4?start=16m12s",
+  videoUrl: "https://www.youtube.com/embed/YPMOce2VdKQ",
   soundUrl:""
 };
 

@@ -39,7 +39,6 @@
 
 .home{
   text-align: center;
-   margin-top:  250px;
 
 }
 
@@ -58,10 +57,11 @@
   border-radius: 20px;
   text-align: center;
   margin: auto;
+
 }
 
 
-.username,.password {
+.username,.password{
 
   margin-top: 20%;
   opacity: 1;
@@ -79,6 +79,21 @@
   font-color: white;
 
 }
+.search-bar{
+opacity: 1;
+display: flex;
+max-width: 250px;
+margin: auto;
+border: 0;
+font-family: 'Raleway', sans-serif  ;
+font-weight:100;
+background-color: transparent;
+max-height: 60px;
+font-size: 1.5em;
+text-align: center;
+font-color: white;
+}
+
 textarea:focus, .username:focus, .password:focus {
     color: white ;
 }
@@ -134,6 +149,7 @@ input, select, textarea{
 }
 .main-headings{
   margin-bottom: 15px;
+  margin-top: 215px;
 }
 .main-input {
   margin-top: 30px;
@@ -155,20 +171,6 @@ input, select, textarea{
 
 
 .nav-bar {
-  
+
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -41,7 +41,7 @@ import {
          {headings}
           <div className="video-background">
             <div className="video-foreground">
-              <ReactPlayer url={this.props.videoUrl} volume={0}
+              <ReactPlayer url={this.props.videoUrl} volume=""
                playing loop={true} />
             </div>
           </div>
