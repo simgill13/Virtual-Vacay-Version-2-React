@@ -48,7 +48,7 @@ import {
           <div className="video-background">
             <div className="video-foreground">
               <ReactPlayer url={this.props.videoUrl} volume={0}
-               playing loop={true} youtubeConfig={{playerVars: {end: 10 }}}/>
+               playing loop={true} youtubeConfig={{playerVars: {end: 100 }}}/>
             </div>
           </div>
           {loginPage}

@@ -76,7 +76,7 @@ app.get('/api/vacation', (req, res) => {
   .find()
   .exec()
   .then(data => res.json(data))
-  .npmcatch(console.error)
+  .catch(console.error)
 });
 
 
