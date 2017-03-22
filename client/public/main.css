@@ -171,6 +171,37 @@ input, select, textarea{
 
 
 .nav-bar {
+  display: inline-block;
+  float: right;
+
+}
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
 
 
+}
+.inline1 {
+  display: inline-block;
+}
+.logged-in-as {
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-right: 20px;
+}
+.logged-in-name {
+  margin-bottom: 3px;
+  margin-top:3px;
+  font-size: 1em;
+  font-family: 'Raleway',sans-serif;
+  color: white;
+  padding-right: 20px;
+}
+.search-box {
+  padding-top: 500px;
 }
