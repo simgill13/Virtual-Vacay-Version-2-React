@@ -208,6 +208,10 @@ input, select, textarea{
 
 
 .player{
-  height: 100px;
-  width: 100px;
+  height: 125px;
+  width: 400px;
+}
+.player-div {
+  margin-top: 300px;
+  float: right;
 }
