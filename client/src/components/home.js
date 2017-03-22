@@ -4,6 +4,7 @@ import Login from './login';
 import Nav from './nav';
 import Search from './search';
 import Headings from './headings';
+import Sound from './sound';
 import {connect} from 'react-redux';
 import {
     fetchvacations
@@ -35,6 +36,11 @@ import {
       if (this.props.loggedIn === false) {
         headings=<Headings/>
       }
+      let sound;
+      if (this.props.soundShowing === true ) {
+        sound=<Sound/>
+      }
+
       return (
         <div className="home">
          {navPage}
@@ -45,10 +51,12 @@ import {
                playing loop={true}/>
             </div>
           </div>
-<iframe className= "player" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/274412611"></iframe>
           {loginPage}
           {searchPage}
-        </div>
+        <footer>
+         {sound}
+        </footer>
+       </div>
       )
     }
  }
@@ -57,7 +65,9 @@ import {
 const mapStateToProps = (state) => ({
  loggedIn: state.loggedIn,
  name: state.name,
- videoUrl: state.videoUrl
+ videoUrl: state.videoUrl,
+ soundUrl: state.soundUrl,
+ soundShowing: state.soundShowing
 });
 
 

@@ -4,7 +4,8 @@ import {
   POST_LOGIN_DATA,
   LOGIN_USER_PAGE,
   FETCH_VACATION_DATA,
-  SEARCH_DATA
+  SEARCH_DATA,
+  SOUND_CLOUD_ICON
 
 } from '../actions/action';
 
@@ -16,12 +17,13 @@ const initialState = {
   id:"",
   profilePicURL:"",
   accessToken:"",
-  expiresAt:1490074439647, //from google auth 
+  expiresAt:1490074439647, //from google auth
   email:"",
   country:"",
   description:"",
   videoUrl: "https://www.youtube.com/embed/YPMOce2VdKQ",
-  soundUrl:""
+  soundUrl:"",
+  soundShowing: false
 };
 
 export default (state = initialState, action) => {
@@ -66,6 +68,10 @@ export default (state = initialState, action) => {
            videoUrl: action.videoUrl,
            soundUrl: action.soundUrl
          })
+         case SOUND_CLOUD_ICON:
+          return Object.assign({},state,{
+            soundShowing: true
+          })
 
       default:
       return state;

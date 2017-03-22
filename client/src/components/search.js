@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import {loginUserPage} from '../actions/action';
 import {
     updateSearchField,
-    searchRequest
+    searchRequest,
+    soundCloudIcon
 } from '../actions/action';
 
 
@@ -24,6 +25,7 @@ import {
                       const userInput = event.target.searchfield.value;
                       console.log(userInput);
                        this.props.dispatch(searchRequest(userInput));
+                       this.props.dispatch(soundCloudIcon());
                   }} className="search-form" >
                     <input name="searchfield" type="text" placeholder="Enter Country Here" onChange={this.grabVal} className="search-bar"></input>
                     <button type="submit" className="search-button">Search</button>

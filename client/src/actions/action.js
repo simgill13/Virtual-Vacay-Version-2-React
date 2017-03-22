@@ -49,6 +49,11 @@ export const searchData = (country, description, videoUrl, soundUrl) => ({
   videoUrl,
   soundUrl
 })
+export const SOUND_CLOUD_ICON = 'SOUND_CLOUD_ICON';
+export const soundCloudIcon = () => ({
+  type: SOUND_CLOUD_ICON,
+})
+
 
 // Async ACTIONS
 
@@ -103,10 +108,3 @@ export const searchRequest = (data) => dispatch => {
     .then(response => response.json())
     .then(json => dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl)))
 }
-
-
-
-
-
-
-
