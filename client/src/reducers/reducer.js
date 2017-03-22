@@ -5,7 +5,8 @@ import {
   LOGIN_USER_PAGE,
   FETCH_VACATION_DATA,
   SEARCH_DATA,
-  SOUND_CLOUD_ICON
+  SOUND_CLOUD_ICON,
+  VACAY_HISTORY
 
 } from '../actions/action';
 
@@ -23,7 +24,8 @@ const initialState = {
   description:"",
   videoUrl: "https://www.youtube.com/embed/YPMOce2VdKQ",
   soundUrl:"",
-  soundShowing: false
+  soundShowing: false,
+  history:[]
 };
 
 export default (state = initialState, action) => {
@@ -71,6 +73,10 @@ export default (state = initialState, action) => {
          case SOUND_CLOUD_ICON:
           return Object.assign({},state,{
             soundShowing: true
+          })
+          case VACAY_HISTORY:
+          return Object.assign({},state,{
+            history: action.vdata
           })
 
       default:

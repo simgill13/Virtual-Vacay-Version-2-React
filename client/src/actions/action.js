@@ -108,3 +108,42 @@ export const searchRequest = (data) => dispatch => {
     .then(response => response.json())
     .then(json => dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl)))
 }
+
+
+
+
+
+//================wed's work=======================
+//sync action
+
+export const VACAY_HISTORY = 'VACAY_HISTORY';
+export const vacayhistory = (vdata) => ({
+  type: VACAY_HISTORY,
+  vdata
+})
+
+// async action
+
+export const fetchinghistory = () => dispatch => {
+    dispatch(fetchHousesRequest());
+    console.log("fetching vacation history");
+    fetch('http://localhost:8080/api/vacation')
+    .then(response => response.json())
+    .then(json => {
+      console.log(json)
+      dispatch(vacayhistory(json));
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
