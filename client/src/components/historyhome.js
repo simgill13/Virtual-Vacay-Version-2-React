@@ -9,19 +9,23 @@ import PostingANewVacay from './historyvacaypost';
 
 
 
-    render() {
-             return (
-                <div className="mainPageVacations" >
+   render() {
+     let cardPage;
+     if (this.props.cardShowing === true) {
+       cardPage=<HistoryResults/>;
+     }
 
-                  <HistorySideBar/>
-                  <HistoryResults/>
-
-                </div>
-        );
-    }
-}
+     return (
+       <div className="mainPageVacations" >
+       <HistorySideBar/>
+       {cardPage}
+       </div>
+     );
+   }
+ }
 
 const mapStateToProps = (state) => ({
+    cardShowing: state.cardShowing
 
 });
 export default connect(mapStateToProps)(HistoryHome)

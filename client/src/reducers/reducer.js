@@ -6,7 +6,8 @@ import {
   FETCH_VACATION_DATA,
   SEARCH_DATA,
   SOUND_CLOUD_ICON,
-  VACAY_HISTORY
+  VACAY_HISTORY,
+  POST_VACATION_FORM
 
 } from '../actions/action';
 
@@ -26,7 +27,8 @@ const initialState = {
   videoUrl: "https://www.youtube.com/embed/YPMOce2VdKQ",
   soundUrl:"",
   soundShowing: false,
-  history:[]
+  history:[],
+  cardShowing: true
 };
 
 export default (state = initialState, action) => {
@@ -79,7 +81,11 @@ export default (state = initialState, action) => {
           return Object.assign({},state,{
             history: action.vdata
           })
-          
+          case POST_VACATION_FORM:
+           return Object.assign({},state,{
+            cardShowing: false
+           })
+
 
       default:
       return state;

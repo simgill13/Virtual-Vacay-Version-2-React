@@ -1,4 +1,7 @@
 * { box-sizing: border-box; }
+.app{
+  height: 100%;
+}
 .video-background {
   background: #000;
   position: fixed;

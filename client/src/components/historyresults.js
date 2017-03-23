@@ -19,9 +19,7 @@ import {
         const vacations= this.props.history;
         return (
 
-            <ul className="indexBackground">  
-            <h1> Our Virtual Vacations list  </h1>
-
+            <ul className="indexBackground">
                 {this.props.history.map(function(vacation,index){
                     return (
                         <div className="container">

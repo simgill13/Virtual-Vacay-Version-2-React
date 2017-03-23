@@ -54,6 +54,11 @@ export const soundCloudIcon = () => ({
   type: SOUND_CLOUD_ICON,
 })
 
+export const POST_VACATION_FORM = 'POST_VACATION_FORM';
+export const postVacationForm = () => ({
+  type: POST_VACATION_FORM,
+})
+
 
 // Async ACTIONS
 
@@ -161,9 +166,3 @@ export const postVacationData = (country,city,description,videoUrl,soundUrl) => 
     })
   }
 }
-
-
-
-
-
-
