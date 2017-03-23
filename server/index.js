@@ -8,8 +8,28 @@ const router = express.Router();
 const jsonParser = bodyParser.json();
 const mongoose = require('mongoose');
 const {Houses, User, Vacation} = require('./models');
+const passport = require("passport"); //added this
+const BearerStrategy = require("passport-http-bearer").Strategy; // a
 const app = express();
 // API endpoints go here!
+
+passport.use(new BearerStrategy(
+  function(token, done) {
+    console.log(token);
+
+    User.findOne({ accessToken: token }, function (err, user) {
+      console.log('token is here',token)
+      console.log('user is here', User)
+      console.log(user)
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      return done(null, user, { scope: 'all' });
+    });
+
+  }
+));
+
+
 
 
 
@@ -71,7 +91,7 @@ app.delete('/api/user/:id', (req , res) =>{
 
 //==============Vacation endpoints==============================
 
-app.get('/api/vacation', (req, res) => {
+app.get('/api/vacation',passport.authenticate('bearer', { session: false }), (req, res) => {
   Vacation
   .find()
   .exec()
@@ -105,7 +125,7 @@ app.post('/api/vacation', jsonParser, (req, res) => {
     soundUrl:req.body.soundUrl
   })
   .then(newPost =>{
-    
+
     res.status(201).json(newPost)
   })
   .catch(err => {

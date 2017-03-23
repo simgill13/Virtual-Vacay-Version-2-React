@@ -132,17 +132,21 @@ export const vacayhistory = (vdata) => ({
 })
 
 // async action
-
-export const fetchinghistory = () => dispatch => {
+export const fetchinghistory = (accessToken) => dispatch => {
     dispatch(fetchHousesRequest());
     console.log("fetching vacation history");
-    fetch('http://localhost:8080/api/vacation')
+    fetch('http://localhost:8080/api/vacation', {
+      headers:{
+        authorization: `bearer ${accessToken}`
+      }
+    })
     .then(response => response.json())
     .then(json => {
       console.log(json)
       dispatch(vacayhistory(json));
     })
 }
+
 
 
 

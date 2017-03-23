@@ -11,7 +11,7 @@ import {
     }
 
     componentDidMount() {
-        this.props.dispatch(fetchinghistory())
+        this.props.dispatch(fetchinghistory(this.props.accessToken))
     }
 
     render() {
@@ -39,7 +39,8 @@ import {
 
 
 const mapStateToProps = (state) => ({
- history: state.history
+ history: state.history,
+ accessToken: state.accessToken
 });
 
 export default connect(mapStateToProps)(HistoryResults)
