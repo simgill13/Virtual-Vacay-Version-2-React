@@ -28,8 +28,9 @@ export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => (
 })
 
 export const LOGIN_USER_PAGE = 'LOGIN_USER_PAGE';
-export const loginUserPage = () => ({
-  type: LOGIN_USER_PAGE
+export const loginUserPage = (userType) => ({
+  type: LOGIN_USER_PAGE,
+  userType
 })
 
 export const FETCH_VACATION_DATA = 'FETCH_VACATION_DATA';

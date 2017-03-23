@@ -24,12 +24,12 @@ import {postUserData,loginUserPage} from '../actions/action';
    const expiresAt= user._token.expiresAt;
 
    this.props.dispatch(postUserData(name,id,profilePicURL,accessToken,expiresAt,email))
-   this.props.dispatch(loginUserPage())
+   this.props.dispatch(loginUserPage("google"))
  }
 
   continueAsGuestClicked() {
     console.log('imheretoparty')
-    this.props.dispatch(loginUserPage())
+    this.props.dispatch(loginUserPage('guest'))
     // dispatch an action that takes out the nav bar for guest users
 
   }

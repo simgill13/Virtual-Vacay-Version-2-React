@@ -18,6 +18,7 @@ const initialState = {
   title: "df",
   loading: false,
   loggedIn: false,
+  loggedInUserType:"",
   guestUserLoggedIn:false,
   name:"",
   id:"",
@@ -61,7 +62,9 @@ export default (state = initialState, action) => {
         })
         case LOGIN_USER_PAGE:
          return Object.assign({}, state, {
-           loggedIn: true
+           loggedIn: true,
+           loggedInUserType:action.userType
+
          })
          case FETCH_VACATION_DATA:
          return Object.assign({},state,{

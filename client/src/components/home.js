@@ -13,6 +13,7 @@ import {
 
 
  class Home extends React.Component {
+  
     // constructor(props) {
     //     super(props);
 
@@ -25,11 +26,11 @@ import {
         loginPage=<Login/>;
       }
       let searchPage;
-      if (this.props.loggedIn === true) {
+      if (this.props.loggedIn === true ) {
         searchPage=<Search/>;
       }
       let navPage;
-      if (this.props.loggedIn === true) {
+      if (this.props.loggedIn === true && this.props.userType !== "guest") {
         navPage=<Nav/>
       }
       let headings;
@@ -67,7 +68,8 @@ const mapStateToProps = (state) => ({
  name: state.name,
  videoUrl: state.videoUrl,
  soundUrl: state.soundUrl,
- soundShowing: state.soundShowing
+ soundShowing: state.soundShowing,
+ userType:state.loggedInUserType
 });
 
 
