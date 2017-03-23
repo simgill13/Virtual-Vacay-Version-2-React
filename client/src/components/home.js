@@ -7,7 +7,7 @@ import Headings from './headings';
 import Sound from './sound';
 import {connect} from 'react-redux';
 import {
-    fetchvacations
+    
 } from '../actions/action';
 
 

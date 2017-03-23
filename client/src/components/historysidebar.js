@@ -1,20 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
 
 
  class HistorySideBar extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
+   
 
 
 
     render() {
              return (
                 <div className="HistorySideBar" >
-                  <h1> testing Historysidebar </h1>
+                  <h1> Nav Bar testing  ----- PAGE UNDER CONSTRUCTION ----  come back soon</h1>
                 </div>
         );
     }

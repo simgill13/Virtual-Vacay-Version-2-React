@@ -1,14 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loginUserPage} from '../actions/action';
+// import {loginUserPage} from '../actions/action';
 
 
 
  class Headings extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
+   
 
 
 render() {

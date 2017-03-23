@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router';
 import {
     fetchinghistory
 } from '../actions/action';
@@ -19,14 +18,20 @@ import {
         console.log(this.props.history)
         const vacations= this.props.history;
         return (
-            <ul>  
-                {this.props.history.map(function(vacation){
-                    return (
-                            <li> 
-                                {vacation.city}
-                            </li>
 
-                    )
+            <ul className="resultsbackground">  
+            <h1> Our Virtual Vacations list  </h1>
+
+                {this.props.history.map(function(vacation,index){
+                    return (
+                        <div className="container">
+                            <div key={index} className="article-div">
+                                <h2> {vacation.country}</h2>
+                                <h4>{vacation.city}</h4>
+                                <p>{vacation.description}</p>
+                            </div>
+                        </div>   
+                    )   
                 })}
             </ul>
         )

@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, hashHistory} from 'react-router';
 
 import store from './store';
 import App from './components/app';
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () =>
         <Provider store={store}>
         	<Router history={hashHistory}>
         		<Route path="/" component={App} />
-        		<Route path="/history" component={HistoryHome} />
+        		<Route path="/Vacations" component={HistoryHome} />
             </Router>
         </Provider>,
         document.getElementById('root')

@@ -137,10 +137,30 @@ export const fetchinghistory = () => dispatch => {
 
 
 
+// Thur morning  work ====================================
 
 
 
 
+
+export const postVacationData = (country,city,description,videoUrl,soundUrl) => {
+
+  return (dispatch) => {
+    fetch('http://localhost:8080/api/vacation', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({country,city,description,videoUrl,soundUrl})
+    })
+    .then(response => response.json({country,city,description,videoUrl,soundUrl}))
+    .then(json => {
+      console.log(json)
+      // i may not need to update the state here, i don't see the point
+      // dispatch(postData(json.name,json.id,json.profilePicURL,json.accessToken,json.expiresAt,json.email))
+    })
+  }
+}
 
 
 

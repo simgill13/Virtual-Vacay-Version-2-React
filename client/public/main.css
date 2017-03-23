@@ -50,7 +50,7 @@
 
 
 .loginDiv{
-  height: 20em;
+  height: 16em;
   width: 25em;
   background-color: black;
   background: rgba(0,0,0,0.8);
@@ -153,20 +153,25 @@ input, select, textarea{
 }
 .main-input {
   margin-top: 30px;
+
 }
 .main-login {
   display: flex;
   height: 40px;
-  width: 90px;
+  width: 210px;
   margin: auto;
   margin-top: 30px;
   border-color: 2px solid #d4fd02;
   color: white;
-  font-size: 1.25em;
+  font-size: 1.1em;
   font-family: 'Raleway', sans-serif;
   background-color: transparent;
   text-align: center;
   padding-left: 15px;
+}
+
+.or{
+  color: white;
 }
 
 
@@ -218,3 +223,71 @@ input, select, textarea{
   bottom: 10px;
   right: 10px;
 }
+
+/* OVERNIGHT templete--UPDATE LATER*/
+/* EVERYTHING BELOW IS A COPY AND PASTE FOR THE NYT APP---- TRYING TO MAKE THE VACATIONS DATA LOOK RESPONSIVE*/
+
+
+
+.article-div{
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: 'Sahitya', serif;
+  border-radius: 18px;
+  border: 1px solid #A9837E;
+  padding: 20px;
+  background-color: white;
+}
+
+.container div .inner{
+  border: 1px solid darkgrey;
+  padding: 0px 10px;
+  background-color: #EDEDED;
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+/*This styling below applies only to screens with more than 683px:*/
+@media screen and (min-width: 683px) {
+  .container{
+    
+    
+    display: inline-block;
+   margin:2px;
+  }
+
+  .article-div{
+    width: 320px;
+  }
+
+  .container p {
+    font-size: 10px;
+  }
+
+  .article-div:hover{
+    box-shadow: 6px 5px 30px #505050;
+  }
+}
+
+
+
+.resultsbackground {
+  background-color: #BDBDBD;
+}
+
+
+
+.HistorySideBar{
+  background-color: #455A64;
+  height: 80px;
+}
+
+
+.PostingANewVacay{
+   background-color: #4DB6AC;
+}
+
+
+
+

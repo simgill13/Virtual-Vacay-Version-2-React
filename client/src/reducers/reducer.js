@@ -14,6 +14,7 @@ const initialState = {
   title: "df",
   loading: false,
   loggedIn: false,
+  guestUserLoggedIn:false,
   name:"",
   id:"",
   profilePicURL:"",
@@ -78,6 +79,7 @@ export default (state = initialState, action) => {
           return Object.assign({},state,{
             history: action.vdata
           })
+          
 
       default:
       return state;

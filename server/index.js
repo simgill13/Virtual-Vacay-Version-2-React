@@ -94,6 +94,28 @@ app.get('/api/vacation/:country', (req, res) => {
 
 
 
+app.post('/api/vacation', jsonParser, (req, res) => {
+  console.log(req.body);
+  Vacation
+  .create({
+    country: req.body.country,
+    city: req.body.city,
+    description: req.body.description,
+    videoUrl: req.body.videoUrl,
+    soundUrl:req.body.soundUrl
+  })
+  .then(newPost =>{
+    
+    res.status(201).json(newPost)
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({message:'internal server error'});
+  })
+
+});
+
+
 
 
 

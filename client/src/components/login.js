@@ -1,7 +1,7 @@
 import React from 'react';
 import SocialLogin from 'react-social-login';
 import {connect} from 'react-redux';
-import {postUserData,fetchHouses,loginUserPage} from '../actions/action';
+import {postUserData,loginUserPage} from '../actions/action';
 
 
 
@@ -10,6 +10,7 @@ import {postUserData,fetchHouses,loginUserPage} from '../actions/action';
         super(props);
 
         this.handleSocialLogin=this.handleSocialLogin.bind(this);
+        this.continueAsGuestClicked=this.continueAsGuestClicked.bind(this);
     }
 
  handleSocialLogin (user,err)  {
@@ -24,10 +25,22 @@ import {postUserData,fetchHouses,loginUserPage} from '../actions/action';
 
    this.props.dispatch(postUserData(name,id,profilePicURL,accessToken,expiresAt,email))
    this.props.dispatch(loginUserPage())
-
  }
 
+  continueAsGuestClicked() {
+    console.log('imheretoparty')
+    this.props.dispatch(loginUserPage())
+    // dispatch an action that takes out the nav bar for guest users
+
+  }
+
+
+
+
+
     render() {
+
+      
              return (
                 <div className="loginDiv" >
                  <SocialLogin
@@ -36,13 +49,10 @@ import {postUserData,fetchHouses,loginUserPage} from '../actions/action';
                      callback={this.handleSocialLogin} >
                      <button className="loginBtn loginBtn--google">Signup Using Google</button>
                   </SocialLogin>
-                  <form className="main-input" >
-                    <input type="text" placeholder="Username" className="   username" ></input>
 
-                    <br/>
-                    <input type="text" placeholder="Password" className="   password" ></input>
-                    <br/>
-                    <button type="submit" className="main-login">Login </button>
+                  <p className="or"> or </p>
+                  <form className="main-input" onSubmit={this.continueAsGuestClicked} >
+                    <button type="submit" className="main-login">Continue as Guest </button>
                   </form>
                 </div>
 
