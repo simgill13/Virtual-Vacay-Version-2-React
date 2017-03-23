@@ -17,7 +17,7 @@ import {Link} from 'react-router';
                      <Link to={'/Vacations'} className='vacation-link'>All Vacations</Link>
                     </div>
                     <div className='inline1'>
-                    <Link to={'/'} className='vacation-link'>Logout</Link>
+                    <button type="submit" className='vacation-link'>Logout</button>
                     </div>
                     <div className='inline1'>
                       <img role="presentation" className="profile-pic" src={this.props.profilePicURL}/>

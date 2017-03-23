@@ -24,7 +24,7 @@ import {
 
                   }} className="search-form" >
                     <input name="searchfield" type="text" placeholder="Enter Country Here"  className="search-bar" required></input>
-                    <button type="submit" className="search-button">Search</button>
+                    <button type="submit" className="vacation-link">Search</button>
                   </form>
                 </div>
         );

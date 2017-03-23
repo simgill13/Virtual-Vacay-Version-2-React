@@ -47,10 +47,10 @@ import {postUserData,loginUserPage} from '../actions/action';
                      provider="google"
                       appId="1085669919173-lslfngv7lb6j9sr7eostmtk54mrdmhc5.apps.googleusercontent.com"
                      callback={this.handleSocialLogin} >
-                     <button className="loginBtn loginBtn--google">Signup Using Google</button>
+                     <button className="loginBtn loginBtn--google">SignIn Using Google</button>
                   </SocialLogin>
 
-                  <p className="or"> or </p>
+                  <p className="or">Or</p>
                   <form className="main-input" onSubmit={this.continueAsGuestClicked} >
                     <button type="submit" className="vacation-link">Continue as Guest </button>
                   </form>
