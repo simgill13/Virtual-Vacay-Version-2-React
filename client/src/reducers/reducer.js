@@ -7,7 +7,10 @@ import {
   SEARCH_DATA,
   SOUND_CLOUD_ICON,
   VACAY_HISTORY,
-  POST_VACATION_FORM
+  POST_VACATION_FORM,
+  EXPOSE_POST_FORM,
+  POST_VACATION_DATA_SUCCESS,
+  ADDING_VACAY_OBJ_TO_HISTORY
 
 } from '../actions/action';
 
@@ -28,7 +31,8 @@ const initialState = {
   soundUrl:"",
   soundShowing: false,
   history:[],
-  cardShowing: true
+  cardShowing: true,
+  postShowing: false,
 };
 
 export default (state = initialState, action) => {
@@ -85,6 +89,19 @@ export default (state = initialState, action) => {
            return Object.assign({},state,{
             cardShowing: false
            })
+          case EXPOSE_POST_FORM:
+           return Object.assign({},state,{
+             postShowing: true
+           })
+          case POST_VACATION_DATA_SUCCESS:
+           return Object.assign({},state,{
+             postShowing: false,
+             cardShowing: true
+           })
+           case ADDING_VACAY_OBJ_TO_HISTORY:
+           return Object.assign({},state,{
+             history:[...state.history,action.vacayObj]
+      })
 
 
       default:

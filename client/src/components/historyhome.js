@@ -11,21 +11,27 @@ import PostingANewVacay from './historyvacaypost';
 
    render() {
      let cardPage;
-     if (this.props.cardShowing === true) {
+     if (this.props.postShowing === false) {
        cardPage=<HistoryResults/>;
+     }
+     let postPage;
+     if (this.props.cardShowing === false) {
+       postPage=<PostingANewVacay/>
      }
 
      return (
        <div className="mainPageVacations" >
        <HistorySideBar/>
        {cardPage}
+       {postPage}
        </div>
      );
    }
  }
 
 const mapStateToProps = (state) => ({
-    cardShowing: state.cardShowing
+    cardShowing: state.cardShowing,
+    postShowing: state.postShowing
 
 });
 export default connect(mapStateToProps)(HistoryHome)

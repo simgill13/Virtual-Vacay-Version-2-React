@@ -1,23 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-    postVacationData
+    postVacationData,
+    postVacationForm,
+    exposePostForm
 } from '../actions/action';
 
 
 
  class PostingANewVacay extends React.Component {
-   
+
 constructor(props) {
     super(props);
- 
-    }
 
+
+    }
 
     render() {
         return (
             <div className="PostingANewVacay" >
-	            <h1> Would you like to add to our virtual vacations list?   </h1>
+	            <h1> Would you like to add to our virtual vacations list?</h1>
 	            <p> You can add your own virtual vacation here </p>
 	            <form className="sumitVacayForm" onSubmit={(event)=> {
 	            	 event.preventDefault();
@@ -29,7 +31,7 @@ constructor(props) {
 	            	console.log(country,city,description,videoUrl,soundUrl);
 	            	this.props.dispatch(postVacationData(country,city,description,videoUrl,soundUrl));
 
-	            	// all you have to do now is create a 
+	            	// all you have to do now is create a
 	            	//1. async action
 	            	//2. syn action
 	            	//3.update reducer ---and im 90%  sure this functionality will work
@@ -45,19 +47,18 @@ constructor(props) {
 		            <input name="soundUrl" type="text" placeholder="soundURL"  className=""></input>
 		            <br/>
 		            <br/>
-		            <button type="submit" className="submit-post">submit</button>
-	            </form>
+		            <button type="submit" className="vacation-link">Add Vacay</button>
+	              </form>
+                <button type="submit" className="vacation-link">Go Back</button>
 
-            </div>
+              </div>
        	);
     }
 }
 
 const mapStateToProps = (state) => ({
- 
+  cardShowing: state.cardShowing,
+  postShowing: state.postShowing
+
 });
 export default connect(mapStateToProps)(PostingANewVacay)
-
-
-
-

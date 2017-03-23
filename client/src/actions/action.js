@@ -58,6 +58,10 @@ export const POST_VACATION_FORM = 'POST_VACATION_FORM';
 export const postVacationForm = () => ({
   type: POST_VACATION_FORM,
 })
+export const EXPOSE_POST_FORM = 'EXPOSE_POST_FORM';
+export const exposePostForm = () => ({
+  type: EXPOSE_POST_FORM,
+})
 
 
 // Async ACTIONS
@@ -143,7 +147,16 @@ export const fetchinghistory = () => dispatch => {
 
 
 // Thur morning  work ====================================
+export const POST_VACATION_DATA_SUCCESS = 'POST_VACATION_DATA_SUCCESS';
+export const postVacationDataSuccess = () => ({
+  type: POST_VACATION_DATA_SUCCESS,
 
+})
+export const  ADDING_VACAY_OBJ_TO_HISTORY = 'ADDING_VACAY_OBJ_TO_HISTORY';
+export const addingVacayObjToHistory = (vacayObj) => ({
+  type: ADDING_VACAY_OBJ_TO_HISTORY,
+  vacayObj
+})
 
 
 
@@ -161,8 +174,8 @@ export const postVacationData = (country,city,description,videoUrl,soundUrl) => 
     .then(response => response.json({country,city,description,videoUrl,soundUrl}))
     .then(json => {
       console.log(json)
-      // i may not need to update the state here, i don't see the point
-      // dispatch(postData(json.name,json.id,json.profilePicURL,json.accessToken,json.expiresAt,json.email))
+      dispatch(postVacationDataSuccess())
+      dispatch(addingVacayObjToHistory(json))
     })
   }
 }

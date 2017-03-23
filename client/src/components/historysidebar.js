@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {PostingANewVacay} from './historyvacaypost';
 import {postVacationForm} from '../actions/action';
+import {exposePostForm} from '../actions/action';
 
 
  class HistorySideBar extends React.Component {
@@ -14,8 +15,8 @@ import {postVacationForm} from '../actions/action';
 
    renderPostForm() {
      this.props.dispatch(postVacationForm());
+     this.props.dispatch(exposePostForm());
    }
-
     render() {
              return (
                 <div className="sideNavigation" >
@@ -41,7 +42,8 @@ import {postVacationForm} from '../actions/action';
 const mapStateToProps = (state) => ({
   profilePicURL: state.profilePicURL,
   name: state.name,
-  cardShowing: state.cardShowing
+  cardShowing: state.cardShowing,
+  postShowing: state.postShowing
 
 
 });
