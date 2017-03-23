@@ -251,8 +251,8 @@ input, select, textarea{
 /*This styling below applies only to screens with more than 683px:*/
 @media screen and (min-width: 683px) {
   .container{
-    
-    
+
+
     display: inline-block;
    margin:2px;
   }
@@ -272,22 +272,35 @@ input, select, textarea{
 
 
 
-.resultsbackground {
-  background-color: #BDBDBD;
+.indexBackground {
+  background: black 0 100% no-repeat;
+  position: absolute;
+  left: 15%;
+  border-radius: 1%;
+  opacity: 0.8;
+  margin-right: 16px;
 }
 
-
-
-.HistorySideBar{
-  background-color: #455A64;
-  height: 80px;
-}
 
 
 .PostingANewVacay{
    background-color: #4DB6AC;
+   position: absolute;
+   left: 20%;
+}
+.mainPageVacations {
+  background-image: url(Beautiful-bridge-lit-up-on-night-HD-wallpaper_3840x2160.jpg);
+  height: 5000px;
+  top: 0; right: 0; bottom: 0; left: 0;
+
 }
 
-
-
-
+.sideNavigation {
+width: 13%;
+height: 100%;
+position: absolute;
+left: 1%;
+background: grey 0 100% no-repeat;
+margin-top: 16px;
+border-radius: 1%;
+}

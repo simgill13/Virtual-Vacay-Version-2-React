@@ -19,7 +19,7 @@ import {
         const vacations= this.props.history;
         return (
 
-            <ul className="resultsbackground">  
+            <ul className="indexBackground">  
             <h1> Our Virtual Vacations list  </h1>
 
                 {this.props.history.map(function(vacation,index){
@@ -30,8 +30,8 @@ import {
                                 <h4>{vacation.city}</h4>
                                 <p>{vacation.description}</p>
                             </div>
-                        </div>   
-                    )   
+                        </div>
+                    )
                 })}
             </ul>
         )
@@ -41,7 +41,7 @@ import {
 
 
 const mapStateToProps = (state) => ({
- history: state.history 
+ history: state.history
 });
- 
+
 export default connect(mapStateToProps)(HistoryResults)

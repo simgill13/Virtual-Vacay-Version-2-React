@@ -5,15 +5,14 @@ import {Link} from 'react-router';
 
 
  class Nav extends React.Component {
-    
+
 
 
 
     render() {
              return (
                 <div className="nav-bar" >
-                      <h3 className='logged-in-as'>Logged in as</h3>
-                      <h3 className='logged-in-name'>{this.props.name}</h3>      
+                    <h3 className='logged-in-name'>{this.props.name}</h3>
                     <div className='inline1'>
                      <Link to={'/Vacations'}> Vacations </Link>
                     </div>

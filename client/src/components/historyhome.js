@@ -5,24 +5,23 @@ import HistorySideBar from './historysidebar';
 import PostingANewVacay from './historyvacaypost';
 
  class HistoryHome extends React.Component {
-   
+
 
 
 
     render() {
              return (
-                <div className="HistoryHome" >
-                  
+                <div className="mainPageVacations" >
+
                   <HistorySideBar/>
-                  <PostingANewVacay/>
                   <HistoryResults/>
-                  
+
                 </div>
         );
     }
 }
 
 const mapStateToProps = (state) => ({
- 
+
 });
 export default connect(mapStateToProps)(HistoryHome)

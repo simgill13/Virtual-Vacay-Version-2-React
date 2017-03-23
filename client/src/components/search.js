@@ -9,8 +9,6 @@ import {
 
 
  class Search extends React.Component {
-   
-
 
 
     render() {
@@ -23,9 +21,9 @@ import {
                       console.log(userInput);
                        this.props.dispatch(searchRequest(userInput));
                        this.props.dispatch(soundCloudIcon());
-                      
+
                   }} className="search-form" >
-                    <input name="searchfield" type="text" placeholder="Enter Country Here"  className="search-bar"></input>
+                    <input name="searchfield" type="text" placeholder="Enter Country Here"  className="search-bar" required></input>
                     <button type="submit" className="search-button">Search</button>
                   </form>
                 </div>
@@ -41,7 +39,7 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(Search)
 
 //NOTE
-//  if you would like to reset the search input field once the user 
+//  if you would like to reset the search input field once the user
 //has typed something in and clicked search
-// the code is 
+// the code is
 //event.target.searchfield.value = ''
