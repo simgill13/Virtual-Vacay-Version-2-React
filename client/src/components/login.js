@@ -40,7 +40,7 @@ import {postUserData,loginUserPage} from '../actions/action';
 
     render() {
 
-      
+
              return (
                 <div className="loginDiv" >
                  <SocialLogin
@@ -52,7 +52,7 @@ import {postUserData,loginUserPage} from '../actions/action';
 
                   <p className="or"> or </p>
                   <form className="main-input" onSubmit={this.continueAsGuestClicked} >
-                    <button type="submit" className="main-login">Continue as Guest </button>
+                    <button type="submit" className="vacation-link">Continue as Guest </button>
                   </form>
                 </div>
 

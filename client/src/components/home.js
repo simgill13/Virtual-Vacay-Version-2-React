@@ -7,7 +7,7 @@ import Headings from './headings';
 import Sound from './sound';
 import {connect} from 'react-redux';
 import {
-    
+
 } from '../actions/action';
 
 
@@ -48,7 +48,7 @@ import {
           <div className="video-background">
             <div className="video-foreground">
               <ReactPlayer url={this.props.videoUrl} volume={0}
-               playing loop={true} youtubeConfig={{playerVars: {end: 100 }}}/>
+               playing loop={true} youtubeConfig={{playerVars: {end: 500 }}}/>
             </div>
           </div>
           {loginPage}

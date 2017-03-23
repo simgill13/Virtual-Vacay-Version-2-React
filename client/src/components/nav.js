@@ -14,10 +14,10 @@ import {Link} from 'react-router';
                 <div className="nav-bar" >
                     <h3 className='logged-in-name'>{this.props.name}</h3>
                     <div className='inline1'>
-                     <Link to={'/Vacations'}> Vacations </Link>
+                     <Link to={'/Vacations'} className='vacation-link'>All Vacations</Link>
                     </div>
                     <div className='inline1'>
-                    <button type="submit" className="logout-button">Logout</button>
+                    <Link to={'/'} className='vacation-link'>Logout</Link>
                     </div>
                     <div className='inline1'>
                       <img role="presentation" className="profile-pic" src={this.props.profilePicURL}/>
