@@ -18,10 +18,9 @@ constructor(props) {
 
     render() {
         return (
-            <div className="PostingANewVacay" >
-	            <h1> Would you like to add to our virtual vacations list?</h1>
-	            <p> You can add your own virtual vacation here </p>
-	            <form className="sumitVacayForm" onSubmit={(event)=> {
+            <div className="form-style-6" >
+	            <h1 className='form-head'> You can add your own virtual vacation here! </h1>
+	            <form onSubmit={(event)=> {
 	            	 event.preventDefault();
 	            	const country = event.target.country.value;
 	            	const city = event.target.city.value;
@@ -36,21 +35,14 @@ constructor(props) {
 	            	//2. syn action
 	            	//3.update reducer ---and im 90%  sure this functionality will work
 	            }}>
-		            <input name="country" type="text" placeholder="enter country"  className=""></input>
-		            <br/>
-		            <input name="city" type="text" placeholder="enter city"  className=""></input>
-		            <br/>
-		            <input name="description" type="text" placeholder="description"  className=""></input>
-		            <br/>
-		            <input name="videoUrl" type="text" placeholder="VideoURL"  className=""></input>
-		            <br/>
-		            <input name="soundUrl" type="text" placeholder="soundURL"  className=""></input>
-		            <br/>
-		            <br/>
+		            <input name="country" type="text" placeholder="Enter Country"  className=""></input>
+		            <input name="city" type="text" placeholder="Entery City"  className=""></input>
+		            <input name="description" type="text" placeholder="Vacation Description"  className=""></input>
+		            <input name="videoUrl" type="url" placeholder="YouTube URL"  className=""></input>
+		            <input name="soundUrl" type="url" placeholder="SoundCloud URL"  className=""></input>
 		            <button type="submit" className="vacation-link">Add Vacay</button>
 	              </form>
                 <button type="submit" className="vacation-link">Go Back</button>
-
               </div>
        	);
     }

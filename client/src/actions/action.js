@@ -28,9 +28,8 @@ export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => (
 })
 
 export const LOGIN_USER_PAGE = 'LOGIN_USER_PAGE';
-export const loginUserPage = (userType) => ({
-  type: LOGIN_USER_PAGE,
-  userType
+export const loginUserPage = () => ({
+  type: LOGIN_USER_PAGE
 })
 
 export const FETCH_VACATION_DATA = 'FETCH_VACATION_DATA';
@@ -133,12 +132,13 @@ export const vacayhistory = (vdata) => ({
 })
 
 // async action
-export const fetchinghistory = (accessToken) => dispatch => {
+export const fetchinghistory = (accessToken) => (dispatch, getState) => {
+    const state = getState();
     dispatch(fetchHousesRequest());
     console.log("fetching vacation history");
     fetch('http://localhost:8080/api/vacation', {
       headers:{
-        authorization: `bearer ${accessToken}`
+        authorization: `bearer ${state.accessToken}`
       }
     })
     .then(response => response.json())

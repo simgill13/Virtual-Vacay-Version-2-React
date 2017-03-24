@@ -1,4 +1,14 @@
 * { box-sizing: border-box; }
+
+.html{
+  height:100%;
+}
+.body {
+  height:100%;
+}
+.home{
+  height:100%;
+}
 .app{
   height: 100%;
 }
@@ -260,6 +270,7 @@ input, select, textarea{
   background-color: #EDEDED;
   width: 100%;
   border-radius: 5px;
+  padding-top: 10px;
 }
 
 
@@ -306,6 +317,7 @@ input, select, textarea{
 .mainPageVacations {
   background-image: url(Beautiful-bridge-lit-up-on-night-HD-wallpaper_3840x2160.jpg);
   height: 100%;
+  position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
 
 }
@@ -361,4 +373,51 @@ text-align: center;
   color:white;
   font-size: 1.25em;
 
+}
+
+.form-style-6{
+    font-family: 'Raleway', sans-serif;
+    max-width: 500px;
+    padding: 16px;
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    background: #F7F7F7;
+    border-radius:3%;
+}
+.form-style-6.form-head{
+    background: #43D1AF;
+    padding: 20px 0;
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+.form-style-6 input[type="text"],
+.form-style-6 input[type="url"]
+
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+}
+.form-style-6 input[type="text"]:focus,
+.form-style-6 input[type="url"]:focus
+{
+    box-shadow: 0 0 5px #4479BA;
+    padding: 3%;
+    border: 1px solid #4479BA;
 }
