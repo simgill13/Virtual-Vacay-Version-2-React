@@ -20,6 +20,8 @@ const initialState = {
   loading: false,
   loggedIn: false,
   loggedInUserType:"",
+  hiMessage:"Hi",
+  whereMessage:"where would you like to go today?",
   guestUserLoggedIn:false,
   name:"",
   id:"",
@@ -108,7 +110,8 @@ export default (state = initialState, action) => {
            })
            case LOGOUT_SUCCESS:
            return Object.assign({},state,{
-             loggedIn: false
+             loggedIn: false,
+             name: ""
            })
 
 

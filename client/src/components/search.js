@@ -14,7 +14,7 @@ import {
     render() {
              return (
                 <div className="search-box" >
-                  <h2 className='motto'>Hi {this.props.name}, where would you like to go today?</h2>
+                  <h2 className='motto'>{`${this.props.hi} `}{this.props.name}, {this.props.whereMessage}</h2>
                   <form onSubmit={(event) => {
                       event.preventDefault();
                       const userInput = event.target.searchfield.value;
@@ -34,6 +34,8 @@ import {
 const mapStateToProps = (state) => ({
  name: state.name,
  videoUrl: state.videoUrl,
+ hi: state.hiMessage,
+ whereMessage: state.whereMessage
 
 });
 export default connect(mapStateToProps)(Search)
