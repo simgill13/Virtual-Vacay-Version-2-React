@@ -406,9 +406,13 @@ text-align: center;
 .add-new-sidebar,.home-sidebar{
   width: 130px;
   height: 60px;
+  margin-bottom: 40px;
 }
 .home-sidebar{
-  margin-bottom:25px;
+    padding-right: 32px;
+    padding-left: 36px;
+    padding-top: 15px;
+    padding-bottom: 20px;
 }
 .add-new-sidebar:active {
   -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);

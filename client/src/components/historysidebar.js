@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {PostingANewVacay} from './historyvacaypost';
 import {postVacationForm} from '../actions/action';
 import {exposePostForm} from '../actions/action';
+import {Link} from 'react-router';
 
 
  class HistorySideBar extends React.Component {
@@ -23,18 +24,19 @@ import {exposePostForm} from '../actions/action';
                 <h3 className='vacation-logged-in-as'>Logged In As</h3>
                 <h3 className='vacation-logged-in-name'>{this.props.name}</h3>
                 <div>
-                  <img role="presentation" className="vacation-profile-pic" src={this.props.profilePicURL}/>
+                <img role="presentation" className="vacation-profile-pic" src={this.props.profilePicURL}/>
                 </div>
                 <div>
                 <button type="submit" className="logout-sidebar">Logout</button>
                 </div>
                 <div>
-                <button type="submit" className="home-sidebar">Go Back</button>
-                </div>
-                <div>
                 <button type="submit" onClick={this.renderPostForm} className="add-new-sidebar">Add New Vacation</button>
+                <div>
+                <Link to={'/'} className='home-sidebar'>Go Back</Link>
                 </div>
                 </div>
+                </div>
+
         );
     }
 }
