@@ -260,7 +260,8 @@ input, select, textarea{
   font-family: 'Sahitya', serif;
   border-radius: 18px;
   border: 1px solid #A9837E;
-  padding: 20px;
+  padding: 0px;
+  text-indent: 2em;
   padding-top: 30px;
   background: linear-gradient(to top, white 76%, white 30%, #4479BA 30%);
 }
