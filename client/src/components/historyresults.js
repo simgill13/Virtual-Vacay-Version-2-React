@@ -14,7 +14,7 @@ import {
     }
 
     render() {
-        console.log(this.props.name)
+
         console.log(this.props.history)
         const vacations= this.props.history;
         return (
@@ -50,7 +50,7 @@ import {
 const mapStateToProps = (state) => ({
  history: state.history,
  accessToken: state.accessToken,
- name: state.name
+
 
 });
 
