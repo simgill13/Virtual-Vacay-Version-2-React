@@ -47,7 +47,7 @@ import {postUserData,loginUserPage} from '../actions/action';
 
                   <p className="or">Or</p>
                   <form className="main-input" onSubmit={this.continueAsGuestClicked} >
-                    <button type="submit" className="vacation-link">Continue as Guest </button>
+                    <button type="submit" className="home-guest">Continue as Guest </button>
                   </form>
                 </div>
 
