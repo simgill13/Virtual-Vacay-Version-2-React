@@ -10,7 +10,8 @@ import {
   POST_VACATION_FORM,
   EXPOSE_POST_FORM,
   POST_VACATION_DATA_SUCCESS,
-  ADDING_VACAY_OBJ_TO_HISTORY
+  ADDING_VACAY_OBJ_TO_HISTORY,
+  LOGOUT_SUCCESS
 
 } from '../actions/action';
 
@@ -104,7 +105,11 @@ export default (state = initialState, action) => {
            case ADDING_VACAY_OBJ_TO_HISTORY:
            return Object.assign({},state,{
              history:[...state.history,action.vacayObj]
-      })
+           })
+           case LOGOUT_SUCCESS:
+           return Object.assign({},state,{
+             loggedIn: false
+           })
 
 
       default:

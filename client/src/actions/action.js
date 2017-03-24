@@ -65,6 +65,7 @@ export const exposePostForm = () => ({
 })
 
 
+
 // Async ACTIONS
 
 export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) => {
@@ -185,3 +186,7 @@ export const postVacationData = (country,city,description,videoUrl,soundUrl) => 
     })
   }
 }
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const logoutSuccess = () =>({
+  type: LOGOUT_SUCCESS,
+})

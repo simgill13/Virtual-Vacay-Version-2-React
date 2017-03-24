@@ -1,13 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
+import {logoutSuccess} from '../actions/action';
 import {Link} from 'react-router';
+
 
 
  class Nav extends React.Component {
 
+     constructor(props) {
+         super(props);
+         this.renderInitialState = this.renderInitialState.bind(this)
+}
 
 
+
+   renderInitialState() {
+     this.props.dispatch(logoutSuccess())
+   }
 
     render() {
              return (
@@ -17,7 +26,7 @@ import {Link} from 'react-router';
                      <Link to={'/Vacations'} className='vacation-link'>All Vacations</Link>
                     </div>
                     <div className='inline1'>
-                    <button type="submit" className='vacation-link'>Logout</button>
+                     <button type="submit" onClick={this.renderInitialState} className='vacation-link'>Logout</button>
                     </div>
                     <div className='inline1'>
                       <img role="presentation" className="profile-pic" src={this.props.profilePicURL}/>

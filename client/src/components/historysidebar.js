@@ -27,9 +27,6 @@ import {Link} from 'react-router';
                 <img role="presentation" className="vacation-profile-pic" src={this.props.profilePicURL}/>
                 </div>
                 <div>
-                <button type="submit" className="logout-sidebar">Logout</button>
-                </div>
-                <div>
                 <button type="submit" onClick={this.renderPostForm} className="add-new-sidebar">Add New Vacation</button>
                 <div>
                 <Link to={'/'} className='home-sidebar'>Go Back</Link>

@@ -1,10 +1,11 @@
 * { box-sizing: border-box; }
 
-.html{
+html{
   height:100%;
 }
-.body {
+body {
   height:100%;
+  position:relative;
 }
 .home{
   height:100%;
@@ -317,9 +318,13 @@ input, select, textarea{
    left: 20%;
 }
 .mainPageVacations {
-  background-image: url(Beautiful-bridge-lit-up-on-night-HD-wallpaper_3840x2160.jpg);
-  height: 300%;
+  background: url('http://eskipaper.com/images/tropical-beach-1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   position: absolute;
+  height: 300%;
   top: 0; right: 0; bottom: 0; left: 0;
 
 }
