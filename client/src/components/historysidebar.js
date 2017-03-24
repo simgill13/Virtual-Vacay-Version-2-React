@@ -26,13 +26,13 @@ import {exposePostForm} from '../actions/action';
                   <img role="presentation" className="vacation-profile-pic" src={this.props.profilePicURL}/>
                 </div>
                 <div>
-                <button type="submit" className="vacation-link">Logout</button>
+                <button type="submit" className="logout-sidebar">Logout</button>
                 </div>
                 <div>
-                <h3>Add Your Personalized Vacation Here</h3>
+                <button type="submit" className="home-sidebar">Go Back</button>
                 </div>
                 <div>
-                <button type="submit" onClick={this.renderPostForm} className="vacation-link">Add</button>
+                <button type="submit" onClick={this.renderPostForm} className="add-new-sidebar">Add New Vacation</button>
                 </div>
                 </div>
         );

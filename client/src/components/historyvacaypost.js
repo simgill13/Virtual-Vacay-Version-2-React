@@ -41,8 +41,8 @@ constructor(props) {
 		            <input name="videoUrl" type="url" placeholder="YouTube URL"  className=""></input>
 		            <input name="soundUrl" type="url" placeholder="SoundCloud URL"  className=""></input>
 		            <button type="submit" className="vacation-link">Add Vacay</button>
-	              </form>
                 <button type="submit" className="vacation-link">Go Back</button>
+	              </form>
               </div>
        	);
     }

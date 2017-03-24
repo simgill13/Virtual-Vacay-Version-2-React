@@ -28,15 +28,10 @@ import {postUserData,loginUserPage} from '../actions/action';
  }
 
   continueAsGuestClicked() {
-    console.log('imheretoparty')
     this.props.dispatch(loginUserPage('guest'))
     // dispatch an action that takes out the nav bar for guest users
 
   }
-
-
-
-
 
     render() {
 
