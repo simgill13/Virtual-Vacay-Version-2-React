@@ -5,6 +5,7 @@ import Nav from './nav';
 import Search from './search';
 import Headings from './headings';
 import Sound from './sound';
+import HomeButton from './homeButton';
 import {connect} from 'react-redux';
 import {
 
@@ -42,9 +43,15 @@ import {
         sound=<Sound/>
       }
 
+       let home;
+      if (this.props.homeButton === true ) {
+        sound=<HomeButton/>
+      }
+      
       return (
         <div className="home">
          {navPage}
+         {home}
          {headings}
           <div className="video-background">
             <div className="video-foreground">
@@ -69,7 +76,8 @@ const mapStateToProps = (state) => ({
  videoUrl: state.videoUrl,
  soundUrl: state.soundUrl,
  soundShowing: state.soundShowing,
- userType:state.loggedInUserType
+ userType:state.loggedInUserType,
+ homeButton:state.homeButton
 });
 
 

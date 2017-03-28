@@ -21,6 +21,7 @@ const initialState = {
   loggedIn: false,
   loggedInUserType:"",
   hiMessage:"Hi",
+  homeButton:false,
   whereMessage:"where would you like to go today?",
   guestUserLoggedIn:false,
   name:"",
@@ -66,7 +67,8 @@ export default (state = initialState, action) => {
         case LOGIN_USER_PAGE:
          return Object.assign({}, state, {
            loggedIn: true,
-           loggedInUserType:action.userType
+           loggedInUserType:action.userType,
+           homeButton:true
 
          })
          case FETCH_VACATION_DATA:
@@ -111,7 +113,9 @@ export default (state = initialState, action) => {
            case LOGOUT_SUCCESS:
            return Object.assign({},state,{
              loggedIn: false,
-             name: ""
+             name: "",
+
+
            })
 
 
