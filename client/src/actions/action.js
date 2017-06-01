@@ -1,20 +1,125 @@
+//SYNC ACTIONS
 
-export const FETCH_HOUSES_REQUEST = 'FETCH_HOUSES_REQUEST';
-export const fetchHousesRequest = () => ({
-  type: FETCH_HOUSES_REQUEST,
+//this action will therotically update my entire user intial state
+
+export const USER_DATA = 'USER_DATA';
+export const userData = (name, email, googleId, profilePicURL, accessToken,favoriteVacations) => ({
+  type: USER_DATA,
+  name,
+  email,
+  googleId,
+  profilePicURL,
+  accessToken,
+  favoriteVacations
 })
 
-export const FETCH_HOUSES_SUCCESS = 'FETCH_HOUSES_SUCCESS';
-export const fetchHousesSuccess = (title, url, location, price, description, accomodates) => ({
-  type: FETCH_HOUSES_SUCCESS,
-  title,
-  url,
-  location,
-  price,
-  description,
-  accomodates
+
+
+export const HIDE_LOGIN = 'HIDE_LOGIN';
+export const hideLogin = () =>({
+  type: HIDE_LOGIN,
 })
 
+export const TOGGLE_HEDDING = 'TOGGLE_HEDDING';
+export const toogleHeadding = () =>({
+  type: TOGGLE_HEDDING,
+})
+
+export const TOGGLE_NAV = 'TOGGLE_NAV';
+export const toogleNav = () =>({
+  type: TOGGLE_NAV,
+})
+
+
+export const TOGGLE_G_NAV = 'TOGGLE_G_NAV';
+export const toogleGNav = () =>({
+  type: TOGGLE_G_NAV,
+})
+
+export const TOGGLE_G_NAV_OFF = 'TOGGLE_G_NAV_OFF';
+export const toogleGNavOff = () =>({
+  type: TOGGLE_G_NAV_OFF,
+})
+
+
+export const TOGGLE_NAV_OFF = 'TOGGLE_NAV_OFF ';
+export const toogleNavOff = () =>({
+  type: TOGGLE_NAV_OFF ,
+})
+
+export const TOGGLE_SEARCH = 'TOGGLE_SEARCH';
+export const toogleSearch = () =>({
+  type: TOGGLE_SEARCH,
+})
+export const TOGGLE_G_SEARCH = 'TOGGLE_G_SEARCH';
+export const toogleGSearch = () =>({
+  type: TOGGLE_G_SEARCH,
+})
+export const TOGGLE_G_SEARCH_OFF = 'TOGGLE_G_SEARCH_OFF';
+export const toogleGSearchOff = () =>({
+  type: TOGGLE_G_SEARCH_OFF,
+})
+export const TOGGLE_SEARCH_OFF = 'TOGGLE_SEARCH_OFF';
+export const toogleSearchOff = () =>({
+  type: TOGGLE_SEARCH_OFF,
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ASYNC ACTIONS
+
+export const fetchUser = (googleId,name,email,profilePicURL,accessToken,expiresAt) => dispatch => {
+    console.log("fetching user data...");
+    fetch(`/api/user/${googleId}`)
+    .then(response => response.json())
+    .then(json => {
+	    if (json == null) {
+	      	console.log(`Sorry, no document in DB relates to ${name}`);
+	      	console.log('soo,going to post a new user to the DB now ...');
+	    	fetch('/api/user', {
+        		method: 'POST',
+        		headers: {
+            	'Content-Type': 'application/json'
+        		},
+        		body: JSON.stringify({googleId,name,email,profilePicURL,accessToken,expiresAt})
+    		})
+    		.then(response => response.json())
+    		.then(json => {
+    			console.log('I have posted this user')
+      			console.log(json)
+      			dispatch(userData(json.name,json.email,json.googleId,json.profilePicURL,json.accessToken,json.favoriteVacations))
+      		})
+	    }
+      	else if (json !== null){
+      		console.log(`User ${name} was found in the USER DB`)
+      		console.log(json)
+      		dispatch(userData(json.name,json.email,json.googleId,json.profilePicURL,json.accessToken,json.favoriteVacations))
+      	}
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//===============BREAK
 
 export const POST_LOGIN_DATA = 'POST_LOGIN_DATA';
 export const postData = (name,id,profilePicURL,accessToken,expiresAt,email) => ({
@@ -54,6 +159,10 @@ export const SOUND_CLOUD_ICON = 'SOUND_CLOUD_ICON';
 export const soundCloudIcon = () => ({
   type: SOUND_CLOUD_ICON,
 })
+export const G_SOUND_CLOUD_ICON = 'G_SOUND_CLOUD_ICON';
+export const GsoundCloudIcon = () => ({
+  type: G_SOUND_CLOUD_ICON,
+})
 
 export const POST_VACATION_FORM = 'POST_VACATION_FORM';
 export const postVacationForm = () => ({
@@ -66,12 +175,13 @@ export const exposePostForm = () => ({
 
 
 
+
 // Async ACTIONS
 
 export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) => {
 
   return (dispatch) => {
-    fetch('http://localhost:8080/api/user', {
+    fetch('/api/user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -87,23 +197,9 @@ export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) 
 }
 
 
-export const fetchHouses = () => dispatch => {
-    dispatch(fetchHousesRequest());
-    console.log("hi");
-    fetch('http://localhost:8080/api/houses')
-    .then(response => response.json())
-    .then(json => {
-      console.log(json[0])
-      dispatch(fetchHousesSuccess(json[0].title,json[0].url,json[0].location,json[0].price,json[0].description,json[0].accomodates));
-    })
-}
-
-
-
 export const fetchvacations = () => dispatch => {
-    dispatch(fetchHousesRequest());
     console.log("fetching vacation data...");
-    fetch('http://localhost:8080/api/vacation')
+    fetch('/api/vacation')
     .then(response => response.json())
     .then(json => {
       console.log(json[0].country)//look at the console before dispatching the action.
@@ -111,11 +207,26 @@ export const fetchvacations = () => dispatch => {
       dispatch(fetchvacationdata(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl));
     })
 }
+export const ARRAY_OF_VACAYS = 'ARRAY_OF_VACAYS';
+export const arrayOfVacays = (array) => ({
+  type: ARRAY_OF_VACAYS,
+  array
+})
+export const allVacationsCall = () => dispatch => {
+    console.log("fetching vacation data...");
+    fetch('/api/vacation')
+    .then(response => response.json())
+    .then(json => {
+      console.log('LOOK HERE', json)//look at the console before dispatching the action.
+
+      dispatch(arrayOfVacays(json));
+    })
+}
+
 
 export const searchRequest = (data) => dispatch => {
-    dispatch(fetchHousesRequest());
     console.log("fetching search data...");
-    fetch(`http://localhost:8080/api/vacation/${data}`)
+    fetch(`/api/vacation/${data}`)
     .then(response => response.json())
     .then(json => dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl)))
 }
@@ -136,9 +247,8 @@ export const vacayhistory = (vdata) => ({
 // async action
 export const fetchinghistory = (accessToken) => (dispatch, getState) => {
     const state = getState();
-    dispatch(fetchHousesRequest());
     console.log("fetching vacation history");
-    fetch('http://localhost:8080/api/vacation', {
+    fetch('/api/vacation', {
       headers:{
         authorization: `bearer ${state.accessToken}`
       }
@@ -153,7 +263,7 @@ export const fetchinghistory = (accessToken) => (dispatch, getState) => {
 
 
 
-// Thur morning  work ====================================
+
 export const POST_VACATION_DATA_SUCCESS = 'POST_VACATION_DATA_SUCCESS';
 export const postVacationDataSuccess = () => ({
   type: POST_VACATION_DATA_SUCCESS,
@@ -171,7 +281,7 @@ export const addingVacayObjToHistory = (vacayObj) => ({
 export const postVacationData = (country,city,description,videoUrl,soundUrl) => {
 
   return (dispatch) => {
-    fetch('http://localhost:8080/api/vacation', {
+    fetch('/api/vacation', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -190,3 +300,42 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const logoutSuccess = () =>({
   type: LOGOUT_SUCCESS,
 })
+
+// Vacations component
+
+
+
+
+export const SHOW_VACAY_LIST = 'SHOW_VACAY_LIST';
+export const showVacayList = () => ({
+  type: SHOW_VACAY_LIST,
+
+})
+
+export const SHOW_G_VACAY_LIST = 'SHOW_G_VACAY_LIST';
+export const showGVacayList = () => ({
+  type: SHOW_G_VACAY_LIST,
+
+})
+export const HIDE_SHOW_G_VACAY_LIST = 'HIDE_SHOW_G_VACAY_LIST';
+export const hideShowGVacayList = () => ({
+  type: HIDE_SHOW_G_VACAY_LIST,
+
+})
+
+export const HIDE_VACAY_LIST = 'HIDE_VACAY_LIST';
+export const hideVacayList = () => ({
+  type: HIDE_VACAY_LIST,
+
+})
+
+
+
+
+
+
+
+
+
+
+

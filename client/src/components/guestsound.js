@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import $ from 'jquery';
 
- class Sound extends React.Component {
+ class GSound extends React.Component {
     
 
       componentDidMount() {
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => ({
  soundUrl: state.soundUrl
 
 });
-export default connect(mapStateToProps)(Sound)
+export default connect(mapStateToProps)(GSound)

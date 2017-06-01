@@ -4,12 +4,12 @@ import $ from 'jquery';
 
 import {
     searchRequest,
-    soundCloudIcon
+    GsoundCloudIcon
 } from '../actions/action';
 
 
 
- class Search extends React.Component {
+ class GSearch extends React.Component {
 
    componentDidMount() {
    $(function () {
@@ -37,8 +37,9 @@ import {
                   <form onSubmit={(event) => {
                       event.preventDefault();
                       const userInput = event.target.searchfield.value;
+                      console.log(userInput);
                       this.props.dispatch(searchRequest(userInput));
-                      this.props.dispatch(soundCloudIcon());
+                      this.props.dispatch(GsoundCloudIcon());
                   }} className="search-form" >
                     <input name="searchfield" type="text" placeholder=" i.e france"  className="search-bar" required></input>
                     <button type="submit" className="vacation-link">Search</button>
@@ -52,10 +53,5 @@ const mapStateToProps = (state) => ({
  name: state.name,
  videoUrl: state.videoUrl,
 });
-export default connect(mapStateToProps)(Search)
+export default connect(mapStateToProps)(GSearch)
 
-//NOTE
-//  if you would like to reset the search input field once the user
-//has typed something in and clicked search
-// the code is
-//event.target.searchfield.value = ''

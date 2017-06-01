@@ -2,16 +2,28 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const DATABASE_URL = process.env.DATABASE_URL ||
-                       global.DATABASE_URL || 'mongodb://userhouse:data@ds137090.mlab.com:37090/housingdata';
-
+                       global.DATABASE_URL || 'mongodb://sim:test@ds145790.mlab.com:45790/breaze';
 const router = express.Router();
-const jsonParser = bodyParser.json();
 const mongoose = require('mongoose');
-const {Houses, User, Vacation} = require('./models');
+const {User,Vacation} = require('./models');
 const passport = require("passport"); //added this
 const BearerStrategy = require("passport-http-bearer").Strategy; // a
 const app = express();
+app.use(bodyParser.json())
 // API endpoints go here!
+
+
+
+
+
+
+
+
+
+
+
+//  PASSPORT STRATEGY =========================
+
 
 passport.use(new BearerStrategy(
   function(token, done) {
@@ -32,38 +44,55 @@ passport.use(new BearerStrategy(
 
 
 
-
-app.get('/api/houses', (req, res) => {
-  Houses
-  .find()
-  .exec()
-  .then(data => res.json(data)
-  .catch(console.error)
-)}
-);
+// ================================== -- USER COLLECTION--  STARTS  ===========================
 
 
-app.get('/api/user', (req, res) => {
+app.get('/api/user',passport.authenticate('bearer', { session: false }), (req, res) => {
   User
   .find()
   .exec()
-  .then(data => res.json(data)
+  .then(data => res.json({
+      users:data.map(user=> user.apiRepr())
+  }))
   .catch(console.error)
-)}
+}
 );
 
-//creates a new user in the user collection
 
-app.post('/api/user', jsonParser, (req, res) => {
-  console.log(req.body);
+// this end point is created because i can use it to check if a user exists 
+// in the data base, when google auth is clicked 
+// -- if the user is already in the database, then this will be used
+//-- if not a new user will be created.
+app.get('/api/user/:googleId', (req, res) => {
+  User
+  .findOne({googleId: req.params.googleId})
+  .exec()
+  .then(data => res.json(data))
+  .catch(console.error)
+}
+);
+
+
+// this will take care of adding a new user
+app.post('/api/user', (req, res) => {
+//every new user should get a sample favorite vacation
+  let sampleVacay = {
+    soundUrl: 'sampletest',
+    videoUrl: 'sampletest',
+    description: 'is atest',
+    city: 'test',
+    country: 'test'
+  }
+
   User
   .create({
-    name: req.body.name,
-    id: req.body.id,
-    profilePicURL: req.body.profilePicURL,
-    accessToken: req.body.accessToken,
-    expiresAt:req.body.expiresAt,
-    email:req.body.email
+  googleId: req.body.googleId,
+  name:req.body.name,
+  email:req.body.email,
+  profilePicURL:req.body.profilePicURL,
+  accessToken: req.body.accessToken,
+  expiresAt: req.body.expiresAt,
+  favoriteVacations:sampleVacay
   })
   .then(newPost =>{
     res.status(201).json(newPost)
@@ -76,7 +105,33 @@ app.post('/api/user', jsonParser, (req, res) => {
 });
 
 
-// ONLY ADDING THIS SO WE TEST ADDING AND REMOVING USERS
+
+
+app.put('/api/user/:id', (req, res) => {
+  
+// before you post a new object in the favorite vacation array
+// you need to seperate out the object into different 
+//variables
+    let country = req.body.country ;
+    let city = req.body.city;
+    let description =req.body.city;
+    let videoUrl = req.body.videoUrl;
+    let soundUrl = req.body.soundUrl;
+  
+User.findByIdAndUpdate(
+    req.params.id,
+    {$push: {"favoriteVacations": {country,city,description,videoUrl,soundUrl}}},
+    {safe: true, upsert: true},
+    function(err, user) {
+      if(err){
+        res.send(err)
+      }
+
+      res.json(user)
+    }
+);
+})
+
 app.delete('/api/user/:id', (req , res) =>{
   User
   .findByIdAndRemove(req.params.id)
@@ -84,23 +139,31 @@ app.delete('/api/user/:id', (req , res) =>{
   .then(post => res.status(204).end())
   .catch(err => {console.error(err); res.status(500).json({message: 'Internal server error'})});
 });
+// ================================== -- USER COLLECTION--  ENDS  ===========================
 
 
 
 
 
-//==============Vacation endpoints==============================
 
-app.get('/api/vacation',passport.authenticate('bearer', { session: false }), (req, res) => {
+
+
+
+//================================ - VACATION COLLECTION -- STARTS  ==========================
+
+app.get('/api/vacation', (req, res) => {
   Vacation
   .find()
   .exec()
-  .then(data => res.json(data))
+  .then(data => {
+    res.json(data)
+  })
   .catch(console.error)
-});
-
+}
+);
 
 app.get('/api/vacation/:country', (req, res) => {
+  console.log(req.params)
   var re = new RegExp(req.params.country, "i");
   Vacation
   .find({country:re})
@@ -109,50 +172,8 @@ app.get('/api/vacation/:country', (req, res) => {
   .catch(console.error)
 });
 
-//
 
-
-
-
-app.post('/api/vacation', jsonParser, (req, res) => {
-  console.log(req.body);
-  Vacation
-  .create({
-    country: req.body.country,
-    city: req.body.city,
-    description: req.body.description,
-    videoUrl: req.body.videoUrl,
-    soundUrl:req.body.soundUrl
-  })
-  .then(newPost =>{
-
-    res.status(201).json(newPost)
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({message:'internal server error'});
-  })
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//================================ - VACATION COLLECTION -- ENDS  ==========================
 
 
 
@@ -181,6 +202,8 @@ app.get(/^(?!\/api(\/|$))/, (req, res) => {
 let server;
 function runServer(port=3001) {
     return new Promise((resolve, reject) => {
+
+
          mongoose.connect(DATABASE_URL, err => {
             if(err) {
               return reject(err);

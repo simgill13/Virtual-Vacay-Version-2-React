@@ -7,16 +7,16 @@ import {Router, Route, hashHistory} from 'react-router';
 
 import store from './store';
 import App from './components/app';
-import HistoryHome from './components/historyhome';
-import Logout from './components/logout';
+import GuestHome from './components/guesthome';
+
+
 
 document.addEventListener('DOMContentLoaded', () =>
     ReactDOM.render(
         <Provider store={store}>
         	<Router history={hashHistory}>
         		<Route path="/" component={App} />
-        		<Route path="/Vacations" component={HistoryHome} />
-            <Route path="/logout" component={Logout} />
+        		<Route path="/guest" component={GuestHome} />
             </Router>
         </Provider>,
         document.getElementById('root')

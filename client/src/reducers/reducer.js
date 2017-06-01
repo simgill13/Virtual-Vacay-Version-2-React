@@ -1,6 +1,10 @@
 import {
-  FETCH_HOUSES_REQUEST,
-  FETCH_HOUSES_SUCCESS,
+
+  USER_DATA,
+  HIDE_LOGIN,
+  TOGGLE_HEDDING,
+  TOGGLE_NAV,
+  TOGGLE_SEARCH,
   POST_LOGIN_DATA,
   LOGIN_USER_PAGE,
   FETCH_VACATION_DATA,
@@ -11,115 +15,155 @@ import {
   EXPOSE_POST_FORM,
   POST_VACATION_DATA_SUCCESS,
   ADDING_VACAY_OBJ_TO_HISTORY,
-  LOGOUT_SUCCESS
+  LOGOUT_SUCCESS,
+  SHOW_VACAY_LIST,
+  TOGGLE_NAV_OFF,
+  HIDE_VACAY_LIST,
+  TOGGLE_SEARCH_OFF,
+  ARRAY_OF_VACAYS,
+  TOGGLE_G_SEARCH,
+  G_SOUND_CLOUD_ICON,
+  TOGGLE_G_NAV,
+  SHOW_G_VACAY_LIST,
+  TOGGLE_G_SEARCH_OFF,
+  TOGGLE_G_NAV_OFF,
+  HIDE_SHOW_G_VACAY_LIST
 
 } from '../actions/action';
 
 const initialState = {
-  title: "df",
-  loading: false,
-  loggedIn: false,
-  loggedInUserType:"",
-  hiMessage:"Hi",
-  homeButton:false,
-  whereMessage:"where would you like to go today?",
-  guestUserLoggedIn:false,
-  name:"",
-  id:"",
-  profilePicURL:"",
-  accessToken:"",
-  expiresAt:1490074439647, //from google auth
+  videoUrl: "https://www.youtube.com/embed/HFIEwpbOWak",
+  showHeading: false,
+  login:false,
+  nav:false,
+  search:false,
+  name: "",
   email:"",
+  googleAccountId: "",
+  profilePicURL: "",
+  accessToken:"",
+  favoriteVacations:[],
+  soundShowing: false,
   country:"",
   description:"",
-  videoUrl: "https://www.youtube.com/embed/HFIEwpbOWak",
   soundUrl:"",
-  soundShowing: false,
-  history:[],
-  cardShowing: true,
-  postShowing: false,
+  vacations:false,
+  arrayofVacays:[],
+  Gsearch:false,
+  GsoundShowing:false,
+  Gnav:false,
+  Gvacations:false
+
+
 };
 
+
+
+
+
+
+
 export default (state = initialState, action) => {
-    switch(action.type) {
-      case FETCH_HOUSES_REQUEST:
-        return Object.assign({}, state, {loading: true})
+	switch(action.type) {
+      
+	case USER_DATA:
+		return Object.assign({}, state, {
+		    name: action.name,
+		  	email:action.email,
+		  	googleId:action.googleId,
+		  	profilePicURL:action.profilePicURL,
+		  	accessToken:action.accessToken,
+		  	favoriteVacations:action.favoriteVacations
+		})
+	        
+    case HIDE_LOGIN:
+		return Object.assign({}, state, {
+		    login:true
+		})   
+    
+    case TOGGLE_HEDDING:
+		return Object.assign({}, state, {
+		    showHeading:true
+		}) 
 
-      case FETCH_HOUSES_SUCCESS:
-        return Object.assign({}, state, {
-          title: action.title,
-          url: action.url,
-          location: action.location,
-          price: action.price,
-          description: action.description,
-          accomodates: action.accomodates,
-          loading: false
-        })
-        case POST_LOGIN_DATA:
-         return Object.assign({},state,{
-          name:action.name,
-          id:action.id,
-          profilePicURL:action.profilePicURL,
-          accessToken:action.accessToken,
-          expiresAt:action.expiresAt,
-          email:action.email
-        })
-        case LOGIN_USER_PAGE:
-         return Object.assign({}, state, {
-           loggedIn: true,
-           loggedInUserType:action.userType,
-           homeButton:true
+	case TOGGLE_NAV:
+		return Object.assign({}, state, {
+		    nav:true
+		})
 
-         })
-         case FETCH_VACATION_DATA:
-         return Object.assign({},state,{
-          country: action.country,
-          description: action.description,
-          videoUrl: action.videoUrl,
-          soundUrl: action.soundUrl
-        })
-        case SEARCH_DATA:
-         return Object.assign({},state,{
-           country: action.country,
-           description: action.description,
-           videoUrl: action.videoUrl,
-           soundUrl: action.soundUrl
-         })
-         case SOUND_CLOUD_ICON:
-          return Object.assign({},state,{
-            soundShowing: true
-          })
-          case VACAY_HISTORY:
-          return Object.assign({},state,{
-            history: action.vdata
-          })
-          case POST_VACATION_FORM:
-           return Object.assign({},state,{
-            cardShowing: false
-           })
-          case EXPOSE_POST_FORM:
-           return Object.assign({},state,{
-             postShowing: true
-           })
-          case POST_VACATION_DATA_SUCCESS:
-           return Object.assign({},state,{
-             postShowing: false,
-             cardShowing: true
-           })
-           case ADDING_VACAY_OBJ_TO_HISTORY:
-           return Object.assign({},state,{
-             history:[...state.history,action.vacayObj]
-           })
-           case LOGOUT_SUCCESS:
-           return Object.assign({},state,{
-             loggedIn: false,
-             name: "",
+  case TOGGLE_G_NAV:
+    return Object.assign({}, state, {
+        Gnav:true
+    })
+  case TOGGLE_G_NAV_OFF:
+    return Object.assign({}, state, {
+        Gnav:false
+    })
+
+  case TOGGLE_NAV_OFF:
+    return Object.assign({}, state, {
+        nav:false
+    })
+
+  case ARRAY_OF_VACAYS:
+    return Object.assign({}, state, {
+        arrayofVacays:action.array
+    })
+
+	case TOGGLE_SEARCH:
+		return Object.assign({}, state, {
+		    search:true
+		})
 
 
-           })
+  case TOGGLE_G_SEARCH:
+    return Object.assign({}, state, {
+        Gsearch:true
+    })
+  case TOGGLE_G_SEARCH_OFF:
+    return Object.assign({}, state, {
+        Gsearch:false
+    })  
+
+  case TOGGLE_SEARCH_OFF:
+    return Object.assign({}, state, {
+        search:false
+    })
+    case SHOW_VACAY_LIST:
+    return Object.assign({}, state, {
+        vacations:true
+    })
+    case SHOW_G_VACAY_LIST:
+    return Object.assign({}, state, {
+        Gvacations:true
+    })
+
+    case HIDE_SHOW_G_VACAY_LIST:
+    return Object.assign({}, state, {
+        Gvacations:false
+    })
+     case HIDE_VACAY_LIST:
+    return Object.assign({}, state, {
+        vacations:false
+    })
+  case SEARCH_DATA:
+    return Object.assign({},state,{
+      country: action.country,
+      description: action.description,
+      videoUrl: action.videoUrl,
+      soundUrl: action.soundUrl
+    })
+   case SOUND_CLOUD_ICON:
+      return Object.assign({},state,{
+        soundShowing: true
+      })
+    case G_SOUND_CLOUD_ICON:
+      return Object.assign({},state,{
+        GsoundShowing: true
+      })      
 
 
-      default:
-      return state;
-    }
-  }
+		default:
+	    return state;
+	}
+}
