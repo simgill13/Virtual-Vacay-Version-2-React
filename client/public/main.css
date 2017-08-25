@@ -596,9 +596,11 @@ text-align: center;
   margin-bottom: 2%;
 }
 
+
 .MobileErrorMsg{
   height: 100%;
   width: 100%;
+      margin: -8px;
 
 }
 
@@ -607,7 +609,7 @@ text-align: center;
 background-size: cover;
   background-repeat: no-repeat;
    background-position: center; 
-  max-width: 400px;
+      width: 410px;
   height: 736px;
   background-image: url('http://res.cloudinary.com/sds-images/image/upload/v1503683593/397116cfeb922358ddbe60b559a87703_thw5ka.jpg');
 }
@@ -621,5 +623,4 @@ margin: 0px;
     padding-left: 20px;
     padding-right: 20px;
 }
-
 
