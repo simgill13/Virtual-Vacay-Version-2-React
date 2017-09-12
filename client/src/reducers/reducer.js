@@ -27,7 +27,9 @@ import {
   SHOW_G_VACAY_LIST,
   TOGGLE_G_SEARCH_OFF,
   TOGGLE_G_NAV_OFF,
-  HIDE_SHOW_G_VACAY_LIST
+  HIDE_SHOW_G_VACAY_LIST,
+  COUNTRY_DOES_NOT_EXIST_IN_DB,
+  COUNTRY_DOES_EXIST_IN_DB
 
 } from '../actions/action';
 
@@ -52,7 +54,8 @@ const initialState = {
   Gsearch:false,
   GsoundShowing:false,
   Gnav:false,
-  Gvacations:false
+  Gvacations:false,
+  NoCountryInDb:false
 
 
 };
@@ -79,7 +82,17 @@ export default (state = initialState, action) => {
     case HIDE_LOGIN:
 		return Object.assign({}, state, {
 		    login:true
-		})   
+		}) 
+
+    case COUNTRY_DOES_NOT_EXIST_IN_DB:
+    return Object.assign({}, state, {
+        NoCountryInDb:true
+    })
+
+    case COUNTRY_DOES_EXIST_IN_DB:
+    return Object.assign({}, state, {
+        NoCountryInDb:false
+    })
     
     case TOGGLE_HEDDING:
 		return Object.assign({}, state, {

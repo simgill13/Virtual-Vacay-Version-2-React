@@ -224,12 +224,32 @@ export const allVacationsCall = () => dispatch => {
 }
 
 
+export const COUNTRY_DOES_NOT_EXIST_IN_DB = 'COUNTRY_DOES_NOT_EXIST_IN_DB';
+export const countryDoesNotExistInDb = () => ({
+  type: COUNTRY_DOES_NOT_EXIST_IN_DB,
+})
+
+
+export const COUNTRY_DOES_EXIST_IN_DB = 'COUNTRY_DOES_EXIST_IN_DB';
+export const countryDoesExistInDb = () => ({
+  type: COUNTRY_DOES_EXIST_IN_DB,
+})
+
 export const searchRequest = (data) => dispatch => {
     console.log("fetching search data...");
     fetch(`/api/vacation/${data}`)
     .then(response => response.json())
-    .then(json => dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl)))
-}
+    .then(json => {
+      if(json.length < 1) {
+        console.log("dispacth")
+        dispatch(countryDoesNotExistInDb())
+      }
+      else {
+        dispatch(countryDoesExistInDb())
+        dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl))
+      }
+    }    
+)}
 
 
 

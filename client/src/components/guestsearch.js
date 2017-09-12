@@ -31,6 +31,30 @@ import {
 
 
     render() {
+
+          if (this.props.NoCountryInDb === true) {
+
+
+             return (
+                <div className="search-box" >
+                  <h2 className='motto searchMotto'>Sorry, we do not have a video for this location, please try All Vacations. </h2>
+                  <form onSubmit={(event) => {
+                      event.preventDefault();
+                      const userInput = event.target.searchfield.value;
+                      console.log(userInput);
+                      this.props.dispatch(searchRequest(userInput));
+                      this.props.dispatch(GsoundCloudIcon());
+                  }} className="search-form" >
+                    <input name="searchfield" type="text" placeholder=" i.e france"  className="search-bar" required></input>
+                    <button type="submit" className="vacation-link">Search</button>
+                  </form>
+                </div>
+        );
+
+          }
+          else{
+
+
              return (
                 <div className="search-box" >
                   <h2 className='motto searchMotto'> Hi {this.props.name}, where would you like to go today? </h2>
@@ -45,13 +69,19 @@ import {
                     <button type="submit" className="vacation-link">Search</button>
                   </form>
                 </div>
-        );
+              );
+
+          }
+
+
+            
     }
 }
 
 const mapStateToProps = (state) => ({
  name: state.name,
  videoUrl: state.videoUrl,
+ NoCountryInDb:state.NoCountryInDb
 });
 export default connect(mapStateToProps)(GSearch)
 
