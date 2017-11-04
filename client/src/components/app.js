@@ -14,21 +14,20 @@ class App extends React.Component {
 
     	
 
-        let home;
-      	if (window.innerHeight>737 && window.innerWidth>415 ) {
-        	home=<Home/>
-      	}
+       //  let home;
+      	// if (window.innerHeight>737 && window.innerWidth>415 ) {
+       //  	home=<Home/>
+      	// }
 
-      	let mobile
-      	if (window.innerHeight<737 && window.innerWidth<415 ){
-      		mobile=<MobileErrorMsg/>
-      	}
+      	// let mobile
+      	// if (window.innerHeight<737 && window.innerWidth<415 ){
+      	// 	mobile=<MobileErrorMsg/>
+      	// }
 
         return (
 
             <div className="app">
-              {mobile}
-              {home}
+             <Home/>
             	
             </div>
         );

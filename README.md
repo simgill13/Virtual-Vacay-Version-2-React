@@ -12,7 +12,7 @@ Disclaimer: This project is mainly built for learning purposes and not intended 
 
 ## Installation
 ```
->   git clone https://github.com/brianmsj/vacation_app.git
+>   git clone 
 >   cd vacation_app
 >   npm install
 ```
