@@ -43,12 +43,13 @@ import Vacations from './vacations';
 
     render() {
      
+
              return (
                 <div className="nav-bar" >
                  <div className="log-in-container">
                     <h3 className='logged-in-name'>{this.props.name}</h3>
                     <div className='goog-img'>
-                      <img role="presentation" className="profile-pic" src={this.props.profilePicURL}/>
+
                     </div>
                  </div>
                  <div className='nav-button'>

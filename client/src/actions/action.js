@@ -84,8 +84,8 @@ export const fetchUser = (googleId,name,email,profilePicURL,accessToken,expiresA
     .then(response => response.json())
     .then(json => {
 	    if (json == null) {
-	      	console.log(`Sorry, no document in DB relates to ${name}`);
-	      	console.log('soo,going to post a new user to the DB now ...');
+	      	// console.log(`Sorry, no document in DB relates to ${name}`);
+	      	// console.log('soo,going to post a new user to the DB now ...');
 	    	fetch('/api/user', {
         		method: 'POST',
         		headers: {
@@ -96,13 +96,13 @@ export const fetchUser = (googleId,name,email,profilePicURL,accessToken,expiresA
     		.then(response => response.json())
     		.then(json => {
     			console.log('I have posted this user')
-      			console.log(json)
+      			// console.log(json)
       			dispatch(userData(json.name,json.email,json.googleId,json.profilePicURL,json.accessToken,json.favoriteVacations))
       		})
 	    }
       	else if (json !== null){
-      		console.log(`User ${name} was found in the USER DB`)
-      		console.log(json)
+      		// console.log(`User ${name} was found in the USER DB`)
+      		// console.log(json)
       		dispatch(userData(json.name,json.email,json.googleId,json.profilePicURL,json.accessToken,json.favoriteVacations))
       	}
     })
@@ -190,7 +190,7 @@ export const postUserData = (name,id,profilePicURL,accessToken,expiresAt,email) 
     })
     .then(response => response.json())
     .then(json => {
-      console.log(json)
+      // console.log(json)
       // console.log(json);
       dispatch(postData(json.name,json.id,json.profilePicURL,json.accessToken,json.expiresAt,json.email))})
   }
@@ -202,7 +202,7 @@ export const fetchvacations = () => dispatch => {
     fetch('/api/vacation')
     .then(response => response.json())
     .then(json => {
-      console.log(json[0].country)//look at the console before dispatching the action.
+      // console.log(json[0].country)//look at the console before dispatching the action.
 
       dispatch(fetchvacationdata(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl));
     })
@@ -213,11 +213,11 @@ export const arrayOfVacays = (array) => ({
   array
 })
 export const allVacationsCall = () => dispatch => {
-    console.log("fetching vacation data...");
+    // console.log("fetching vacation data...");
     fetch('/api/vacation')
     .then(response => response.json())
     .then(json => {
-      console.log('LOOK HERE', json)//look at the console before dispatching the action.
+      // console.log('LOOK HERE', json)//look at the console before dispatching the action.
 
       dispatch(arrayOfVacays(json));
     })
@@ -241,7 +241,7 @@ export const searchRequest = (data) => dispatch => {
     .then(response => response.json())
     .then(json => {
       if(json.length < 1) {
-        console.log("dispacth")
+        // console.log("dispacth")
         dispatch(countryDoesNotExistInDb())
       }
       else {
@@ -275,7 +275,7 @@ export const fetchinghistory = (accessToken) => (dispatch, getState) => {
     })
     .then(response => response.json())
     .then(json => {
-      console.log(json)
+      // console.log(json)
       dispatch(vacayhistory(json));
     })
 }
@@ -310,7 +310,7 @@ export const postVacationData = (country,city,description,videoUrl,soundUrl) => 
     })
     .then(response => response.json({country,city,description,videoUrl,soundUrl}))
     .then(json => {
-      console.log(json)
+      // console.log(json)
       dispatch(postVacationDataSuccess())
       dispatch(addingVacayObjToHistory(json))
     })
