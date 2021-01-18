@@ -163,8 +163,8 @@ app.get('/api/vacation', (req, res) => {
   country: 'Dubai',
   city:'Dubai',
   description: '',
-  videoUrl: 'https://www.youtube.com/embed/jnPTvPCL9lI',
-  soundUrl: 'https://soundcloud.com/carambacris/sets/arabian-chill'
+  videoUrl: 'https://www.youtube.com/embed/HFIEwpbOWak',
+  soundUrl: 'https://soundcloud.com/homnaynghegi-empressplay/wonderful-chill-out-music?in=sharpride/sets/wonderful-arabian-chill-out'
  }]
 
  res.json(data)
