@@ -235,21 +235,23 @@ export const countryDoesExistInDb = () => ({
   type: COUNTRY_DOES_EXIST_IN_DB,
 })
 
-export const searchRequest = (data) => dispatch => {
-    console.log("fetching search data...");
-    fetch(`/api/vacation/${data}`)
-    .then(response => response.json())
-    .then(json => {
-      if(json.length < 1) {
-        // console.log("dispacth")
-        dispatch(countryDoesNotExistInDb())
-      }
-      else {
-        dispatch(countryDoesExistInDb())
-        dispatch(searchData(json[0].country,json[0].description,json[0].videoUrl,json[0].soundUrl))
-      }
-    }    
-)}
+export const searchRequest = (vacation) => dispatch => {
+    // console.log("fetching search data...");
+    // fetch(`/api/vacation/${data}`)
+    // .then(response => response.json())
+    // .then(json => {
+    //   if(json.length < 1) {
+    //     // console.log("dispacth")
+    //     dispatch(countryDoesNotExistInDb())
+    //   }
+    //   else {
+    //     dispatch(countryDoesExistInDb())
+    //     dispatch(searchData(vacation.country,vacation.description,vacation.videoUrl,json[0].soundUrl))
+    //   }
+    // }   
+    dispatch(countryDoesExistInDb())
+    dispatch(searchData(vacation.country,vacation.description,vacation.videoUrl,vacation.soundUrl)) 
+}
 
 
 

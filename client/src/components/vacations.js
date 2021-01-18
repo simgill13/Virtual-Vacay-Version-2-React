@@ -25,7 +25,7 @@ import $ from 'jquery';
   }
   handleVacationClicked(vacation){
 
-    this.props.dispatch(searchRequest(vacation.country));
+    this.props.dispatch(searchRequest(vacation));
     this.props.dispatch(soundCloudIcon());
     this.props.dispatch(toogleNav());
     this.props.dispatch(toogleSearch());
