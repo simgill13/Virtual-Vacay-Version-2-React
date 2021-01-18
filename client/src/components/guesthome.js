@@ -26,7 +26,8 @@ class GuestHome extends React.Component {
   	}
 
     render() {
-    	
+			
+			const internalSearch = null 
       	let Gsearch;
 	      if (this.props.Gsearch === true) {
 	        Gsearch=<GSearch/>
