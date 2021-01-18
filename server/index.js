@@ -152,15 +152,24 @@ app.delete('/api/user/:id', (req , res) =>{
 //================================ - VACATION COLLECTION -- STARTS  ==========================
 
 app.get('/api/vacation', (req, res) => {
-  Vacation
-  .find()
-  .exec()
-  .then(data => {
-    res.json(data)
-  })
-  .catch(console.error)
-}
-);
+  // Vacation
+  // .find()
+  // .exec()
+  // .then(data => {
+  //   res.json(data)
+  // })
+  // .catch(console.error)
+ const data = [{
+  country: 'Dubai',
+  city:'Dubai',
+  description: '',
+  videoUrl: 'https://www.youtube.com/embed/jnPTvPCL9lI',
+  soundUrl: 'https://soundcloud.com/carambacris/sets/arabian-chill'
+ }]
+
+ res.json(data)
+  
+});
 
 app.get('/api/vacation/:country', (req, res) => {
   console.log(req.params)
