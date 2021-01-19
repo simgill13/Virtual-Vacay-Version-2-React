@@ -40,6 +40,7 @@ import $ from 'jquery';
              return (
                 <ul className="vacationsComponent">
                   {this.props.arrayofVacays.map((vacation,index)=>{
+                    
                     return (
                         <div onClick={(event) => {this.handleVacationClicked(vacation)}} className="vacayContainer">
                             <div className="innerv" key={index}>

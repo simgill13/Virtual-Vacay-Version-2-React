@@ -24,9 +24,14 @@ import $ from 'jquery';
       }
 
     render() {
+      
              return (
                 <div className="player-div" >
-                <iframe className="player" allowTransparency="true" scrolling="no" frameBorder="no" src={`${this.props.soundUrl}&auto_play=true`}></iframe>
+                {/* <iframe className="player" allowTransparency="true" scrolling="no" frameBorder="no" src={`${defaultSount}&auto_play=true`}></iframe> */}
+                <iframe className="player" allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2Fhttps%3A%2F%2Fsoundcloud.com%2Frasha406%2Fwonderful-arabian-chill-out-music&color=orange_white&size=24" ></iframe>
+          
+                
+
                 </div>
         );
     }
