@@ -59,8 +59,8 @@ app.get('/api/user',passport.authenticate('bearer', { session: false }), (req, r
 );
 
 
-// this end point is created because i can use it to check if a user exists 
-// in the data base, when google auth is clicked 
+// this end point is created because i can use it to check if a user exists
+// in the data base, when google auth is clicked
 // -- if the user is already in the database, then this will be used
 //-- if not a new user will be created.
 app.get('/api/user/:googleId', (req, res) => {
@@ -108,16 +108,16 @@ app.post('/api/user', (req, res) => {
 
 
 app.put('/api/user/:id', (req, res) => {
-  
+
 // before you post a new object in the favorite vacation array
-// you need to seperate out the object into different 
+// you need to seperate out the object into different
 //variables
     let country = req.body.country ;
     let city = req.body.city;
     let description =req.body.city;
     let videoUrl = req.body.videoUrl;
     let soundUrl = req.body.soundUrl;
-  
+
 User.findByIdAndUpdate(
     req.params.id,
     {$push: {"favoriteVacations": {country,city,description,videoUrl,soundUrl}}},
@@ -160,15 +160,15 @@ app.get('/api/vacation', (req, res) => {
   // })
   // .catch(console.error)
  const data = [{
-  country: 'Dubai',
-  city:'Dubai',
+  country: 'Australia',
+  city:'Gold Coast',
   description: '',
   videoUrl: 'https://www.youtube.com/embed/HFIEwpbOWak',
   soundUrl: 'https://soundcloud.com/homnaynghegi-empressplay/wonderful-chill-out-music?in=sharpride/sets/wonderful-arabian-chill-out'
  }]
 
  res.json(data)
-  
+
 });
 
 app.get('/api/vacation/:country', (req, res) => {

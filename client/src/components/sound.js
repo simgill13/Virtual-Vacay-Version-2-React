@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import $ from 'jquery';
 
  class Sound extends React.Component {
-    
+
 
       componentDidMount() {
       $(function () {

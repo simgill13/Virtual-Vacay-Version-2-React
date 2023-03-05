@@ -251,8 +251,8 @@ input, select, textarea{
 
 
 .player{
-  height: 90px;
-  width: 65px;
+  /*height: 90px;*/
+  /*width: 65px;*/
 }
 .player-div {
   position: absolute;
@@ -550,7 +550,7 @@ text-align: center;
   border-color: #815400;
   border-radius: 20px;
   border-width: .2px;*/
-  
+
 }
 .vacayContainer{
   margin-top: 40px;
@@ -608,7 +608,7 @@ text-align: center;
 .mobilepic{
 background-size: cover;
   background-repeat: no-repeat;
-   background-position: center; 
+   background-position: center;
       width: 410px;
   height: 736px;
   background-image: url('http://res.cloudinary.com/sds-images/image/upload/v1503683593/397116cfeb922358ddbe60b559a87703_thw5ka.jpg');
